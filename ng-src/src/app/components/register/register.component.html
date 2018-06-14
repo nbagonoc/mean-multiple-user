@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <div class="card shadow">
+        <div class="card-header">
+          Register
+        </div>
+        <div class="card-body">
+          <form (submit)="onSubmit()">
+            <div class="form-group">
+              <label for="">Name</label>
+              <input type="text" name="name" class="form-control" placeholder="your name" [(ngModel)]="name" #registerName="ngModel" required>
+              <span *ngIf="registerName.errors?.required && registerName.touched" class="small text-danger">name is required</span>
+            </div>
+            <div class="form-group">
+              <label for="">Email</label>
+              <input type="text" name="email" class="form-control" placeholder="your email" [(ngModel)]="email" #registerEmail="ngModel"
+                required>
+              <span *ngIf="registerEmail.errors?.required && registerEmail.touched" class="small text-danger">email is required</span>
+            </div>
+            <div class="form-group">
+              <label for="">Password</label>
+              <input type="password" name="password" class="form-control" placeholder="your password" [(ngModel)]="password" #registerPassword="ngModel"
+                required>
+              <span *ngIf="registerPassword.errors?.required && registerPassword.touched" class="small text-danger">Password is required</span>
+            </div>
+            <div class="form-group">
+              <label for="">Confirm Password</label>
+              <input type="password" name="password2" class="form-control" placeholder="confirm your password" [(ngModel)]="password2"
+                #registerPassword2="ngModel" required>
+              <span *ngIf="registerPassword2.errors?.required && registerPassword2.touched" class="small text-danger">confirm password is required</span>
+            </div>
+            <input type="submit" value="Register" class="btn btn-outline-success">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

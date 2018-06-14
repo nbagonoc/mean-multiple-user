@@ -1,0 +1,15 @@
+<div class="container" *ngIf="user">
+  <div class="row">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <div class="card shadow">
+        <div class="card-header text-capitalize">
+          Your Profile
+        </div>
+        <div class="card-body">
+          <h2>{{user.name}}</h2>
+          <p>{{user.email}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

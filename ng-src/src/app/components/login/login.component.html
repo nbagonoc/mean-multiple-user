@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <div class="card shadow">
+        <div class="card-header">
+          Login
+        </div>
+        <div class="card-body">
+          <form (submit)="onSubmit()">
+            <div class="form-group">
+              <label for="">Email</label>
+              <input type="text" name="email" class="form-control" placeholder="your email" [(ngModel)]="email" #loginEmail="ngModel" required>
+              <span *ngIf="loginEmail.errors?.required && loginEmail.touched" class="small text-danger">email is required</span>
+            </div>
+            <div class="form-group">
+              <label for="">Password</label>
+              <input type="password" name="password" class="form-control" placeholder="your password" [(ngModel)]="password" #loginPassword="ngModel"
+                required>
+              <span *ngIf="loginPassword.errors?.required && loginPassword.touched" class="small text-danger">Password is required</span>
+            </div>
+            <input type="submit" value="Login" class="btn btn-outline-success">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
