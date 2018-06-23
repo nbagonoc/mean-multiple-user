@@ -3,6 +3,10 @@ html {
   height: 100%;
 }
 
+.slabo {
+  font-family: "Slabo 27px", serif;
+}
+
 .flash-messages p {
   margin-bottom: 0 !important;
 }
