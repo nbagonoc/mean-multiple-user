@@ -18,6 +18,12 @@
       <li *ngIf="!authService.isLoggedIn()" class="nav-item">
         <a [routerLinkActive]="['active']" class="nav-link" href="#" routerLink="/login">Login</a>
       </li>
+      <li *ngIf="authService.isLoggedIn() && user && user.role==1" class="nav-item">
+        <a [routerLinkActive]="['active']" class="nav-link text-capitalize" href="#" routerLink="/profile">Admin</a>
+      </li>
+      <li *ngIf="authService.isLoggedIn() && user && user.role==0" class="nav-item">
+        <a [routerLinkActive]="['active']" class="nav-link text-capitalize" href="#" routerLink="/profile">Subscriber</a>
+      </li>
       <li *ngIf="authService.isLoggedIn()" class="nav-item">
         <a [routerLinkActive]="['active']" class="nav-link" href="#" routerLink="/profile">Profile</a>
       </li>

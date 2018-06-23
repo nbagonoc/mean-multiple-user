@@ -16,7 +16,7 @@ export class AuthService {
   registerUser(user) {
     let headers = new HttpHeaders();
     headers.append("Content-type", "applications/json");
-    return this.http.post("users/register", user, {
+    return this.http.post("http://localhost:5000/users/register", user, {
       headers
     });
   }
@@ -25,7 +25,7 @@ export class AuthService {
   authenticateUser(user) {
     let headers = new HttpHeaders();
     headers.append("Content-type", "applications/json");
-    return this.http.post("users/authenticate", user, {
+    return this.http.post("http://localhost:5000/users/authenticate", user, {
       headers
     });
   }
@@ -36,7 +36,7 @@ export class AuthService {
       "Content-Type": "application/json",
       Authorization: this.authToken
     });
-    return this.http.get("users/profile", {
+    return this.http.get("http://localhost:5000/users/profile", {
       headers
     });
   }
