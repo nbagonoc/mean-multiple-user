@@ -11,6 +11,7 @@ import { AuthService } from "./services/auth.service";
 
 // GUARDS
 import { AuthGuard } from "./guards/auth.guard";
+import { AdminGuard } from "./guards/admin.guard";
 
 // COMPONENTS
 import { AppComponent } from "./app.component";
@@ -20,6 +21,8 @@ import { RegisterComponent } from "./components/register/register.component";
 import { HomeComponent } from "./components/home/home.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { ProfileComponent } from "./components/profile/profile.component";
+import { AdminComponent } from "./components/admin/admin.component";
+import { SubscriberComponent } from "./components/subscriber/subscriber.component";
 
 // ROUTES
 const appRoutes: Routes = [
@@ -31,7 +34,17 @@ const appRoutes: Routes = [
     component: DashboardComponent,
     canActivate: [AuthGuard]
   },
-  { path: "profile", component: ProfileComponent, canActivate: [AuthGuard] }
+  { path: "profile", component: ProfileComponent, canActivate: [AuthGuard] },
+  {
+    path: "admin",
+    component: AdminComponent,
+    canActivate: [AuthGuard, AdminGuard]
+  },
+  {
+    path: "subscriber",
+    component: SubscriberComponent,
+    canActivate: [AuthGuard]
+  }
 ];
 
 @NgModule({
@@ -42,7 +55,9 @@ const appRoutes: Routes = [
     RegisterComponent,
     HomeComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    AdminComponent,
+    SubscriberComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +66,7 @@ const appRoutes: Routes = [
     FormsModule,
     FlashMessagesModule.forRoot()
   ],
-  providers: [ValidateService, AuthService, AuthGuard],
+  providers: [ValidateService, AuthService, AuthGuard, AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

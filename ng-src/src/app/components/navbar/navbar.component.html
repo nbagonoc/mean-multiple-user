@@ -11,26 +11,28 @@
         </a>
       </li>
     </ul>
-    <ul class="navbar-nav ml-auto">
-      <li *ngIf="!authService.isLoggedIn()" class="nav-item">
+    <ul *ngIf="!authService.isLoggedIn()" class="navbar-nav ml-auto">
+      <li class="nav-item">
         <a [routerLinkActive]="['active']" class="nav-link" href="#" routerLink="/register">Register</a>
       </li>
-      <li *ngIf="!authService.isLoggedIn()" class="nav-item">
+      <li class="nav-item">
         <a [routerLinkActive]="['active']" class="nav-link" href="#" routerLink="/login">Login</a>
       </li>
-      <li *ngIf="authService.isLoggedIn() && user && user.role==1" class="nav-item">
-        <a [routerLinkActive]="['active']" class="nav-link text-capitalize" href="#" routerLink="/profile">Admin</a>
+    </ul>
+    <ul *ngIf="authService.isLoggedIn()" class="navbar-nav ml-auto">
+      <li *ngIf="authService.isAdmin()" class="nav-item">
+        <a [routerLinkActive]="['active']" class="nav-link text-capitalize" href="#" routerLink="/admin">Admin</a>
       </li>
-      <li *ngIf="authService.isLoggedIn() && user && user.role==0" class="nav-item">
-        <a [routerLinkActive]="['active']" class="nav-link text-capitalize" href="#" routerLink="/profile">Subscriber</a>
+      <li class="nav-item">
+        <a [routerLinkActive]="['active']" class="nav-link text-capitalize" href="#" routerLink="/subscriber">Subscriber</a>
       </li>
-      <li *ngIf="authService.isLoggedIn()" class="nav-item">
+      <li class="nav-item">
         <a [routerLinkActive]="['active']" class="nav-link" href="#" routerLink="/profile">Profile</a>
       </li>
-      <li *ngIf="authService.isLoggedIn()" class="nav-item">
+      <li class="nav-item">
         <a [routerLinkActive]="['active']" class="nav-link" href="#" routerLink="/dashboard">Dashboard</a>
       </li>
-      <li *ngIf="authService.isLoggedIn()" class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" href="/" (click)="onLogout()">Logout</a>
       </li>
     </ul>

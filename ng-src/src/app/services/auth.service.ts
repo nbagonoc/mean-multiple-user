@@ -58,6 +58,15 @@ export class AuthService {
     return tokenNotExpired("id_token");
   }
 
+  isAdmin() {
+    let user = JSON.parse(localStorage.getItem("user"));
+    let userRole = user["role"];
+    // console.log("this is the user: " + userRole);
+    if (userRole == "admin") {
+      return true;
+    }
+  }
+
   // signout
   logout() {
     this.authToken = null;
