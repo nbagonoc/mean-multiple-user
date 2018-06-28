@@ -106,8 +106,8 @@ router.get(
       user: {
         id: req.user.id,
         name: req.user.name,
-        email: req.user.email,
-        role: req.user.role
+        email: req.user.email
+        // role: req.user.role
       }
     });
     // res.json({ user: req.user });
