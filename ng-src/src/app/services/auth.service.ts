@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import "rxjs/add/operator/map";
-import { tokenNotExpired } from "angular2-jwt";
+import { tokenNotExpired, JwtHelper } from "angular2-jwt";
 
 @Injectable({
   providedIn: "root"
@@ -32,22 +32,9 @@ export class AuthService {
     });
   }
 
-  getProfile() {
-    this.loadToken();
-    let headers = new HttpHeaders({
-      "Content-Type": "application/json",
-      Authorization: this.authToken
-    });
-    // return this.http.get("http://localhost:5000/users/profile", {
-    return this.http.get("users/profile", {
-      headers
-    });
-  }
-
   // store token and user data
   storeUserData(token, user) {
     localStorage.setItem("id_token", token);
-    localStorage.setItem("user", JSON.stringify(user));
     this.authToken = token;
     this.user = user;
   }
@@ -61,19 +48,15 @@ export class AuthService {
     return tokenNotExpired("id_token");
   }
 
-  isAdmin() {
-    let user = JSON.parse(localStorage.getItem("user"));
-    let userRole = user["role"];
-    // console.log("this is the user: " + userRole);
-    if (userRole == "admin") {
-      return true;
-    }
+  get currentUser() {
+    this.loadToken();
+    if (!this.authToken) return null;
+    return new JwtHelper().decodeToken(this.authToken);
   }
 
   // signout
   logout() {
     this.authToken = null;
-    this.user = null;
     localStorage.clear();
   }
 }

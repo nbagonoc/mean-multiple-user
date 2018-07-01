@@ -83,8 +83,7 @@ router.post("/authenticate", (req, res, next) => {
               (err, token) => {
                 res.json({
                   success: true,
-                  token: "JWT " + token,
-                  user: payload
+                  token: "JWT " + token
                 });
               }
             );
@@ -96,22 +95,5 @@ router.post("/authenticate", (req, res, next) => {
     });
   }
 });
-
-// GET | Profile
-router.get(
-  "/profile",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    res.json({
-      user: {
-        id: req.user.id,
-        name: req.user.name,
-        email: req.user.email
-        // role: req.user.role
-      }
-    });
-    // res.json({ user: req.user });
-  }
-);
 
 module.exports = router;

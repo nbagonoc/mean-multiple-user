@@ -1,4 +1,4 @@
-<div class="container" *ngIf="user">
+<div class="container">
   <div class="row">
     <div class="col-lg-6 col-md-8 mx-auto">
       <div class="card shadow">
@@ -6,8 +6,9 @@
           Your Profile
         </div>
         <div class="card-body">
-          <h2>{{user.name}}</h2>
-          <p>{{user.email}}</p>
+          <h2>{{authService.currentUser.name}}</h2>
+          <p>Email: {{authService.currentUser.email}}</p>
+          <p>Role: {{authService.currentUser.role}}</p>
         </div>
       </div>
     </div>

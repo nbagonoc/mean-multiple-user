@@ -520,7 +520,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-md navbar-light bg-light shadow\">\n  <a class=\"navbar-brand\" href=\"#\" routerLink=\"/\">Mean</a>\n  <button class=\"navbar-toggler hidden-lg-up\" type=\"button\" data-toggle=\"collapse\" data-target=\"#collapsibleNavId\" aria-controls=\"collapsibleNavId\"\n    aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <div class=\"collapse navbar-collapse\" id=\"collapsibleNavId\">\n    <ul class=\"navbar-nav\">\n      <li class=\"nav-item\">\n        <a [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\" class=\"nav-link\" href=\"#\" routerLink=\"/\">Home\n        </a>\n      </li>\n    </ul>\n    <ul *ngIf=\"!authService.isLoggedIn()\" class=\"navbar-nav ml-auto\">\n      <li class=\"nav-item\">\n        <a [routerLinkActive]=\"['active']\" class=\"nav-link\" href=\"#\" routerLink=\"/register\">Register</a>\n      </li>\n      <li class=\"nav-item\">\n        <a [routerLinkActive]=\"['active']\" class=\"nav-link\" href=\"#\" routerLink=\"/login\">Login</a>\n      </li>\n    </ul>\n    <ul *ngIf=\"authService.isLoggedIn()\" class=\"navbar-nav ml-auto\">\n      <li *ngIf=\"authService.isAdmin()\" class=\"nav-item\">\n        <a [routerLinkActive]=\"['active']\" class=\"nav-link text-capitalize\" href=\"#\" routerLink=\"/admin\">Admin</a>\n      </li>\n      <li class=\"nav-item\">\n        <a [routerLinkActive]=\"['active']\" class=\"nav-link text-capitalize\" href=\"#\" routerLink=\"/subscriber\">Subscriber</a>\n      </li>\n      <li class=\"nav-item\">\n        <a [routerLinkActive]=\"['active']\" class=\"nav-link\" href=\"#\" routerLink=\"/profile\">Profile</a>\n      </li>\n      <li class=\"nav-item\">\n        <a [routerLinkActive]=\"['active']\" class=\"nav-link\" href=\"#\" routerLink=\"/dashboard\">Dashboard</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"/\" (click)=\"onLogout()\">Logout</a>\n      </li>\n    </ul>\n  </div>\n</nav>"
+module.exports = "<nav class=\"navbar navbar-expand-md navbar-light bg-light shadow\">\n  <a class=\"navbar-brand\" href=\"#\" routerLink=\"/\">Mean</a>\n  <button class=\"navbar-toggler hidden-lg-up\" type=\"button\" data-toggle=\"collapse\" data-target=\"#collapsibleNavId\" aria-controls=\"collapsibleNavId\"\n    aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <div class=\"collapse navbar-collapse\" id=\"collapsibleNavId\">\n    <ul class=\"navbar-nav\">\n      <li class=\"nav-item\">\n        <a [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\" class=\"nav-link\" href=\"#\" routerLink=\"/\">Home\n        </a>\n      </li>\n    </ul>\n    <ul *ngIf=\"!authService.isLoggedIn()\" class=\"navbar-nav ml-auto\">\n      <li class=\"nav-item\">\n        <a [routerLinkActive]=\"['active']\" class=\"nav-link\" href=\"#\" routerLink=\"/register\">Register</a>\n      </li>\n      <li class=\"nav-item\">\n        <a [routerLinkActive]=\"['active']\" class=\"nav-link\" href=\"#\" routerLink=\"/login\">Login</a>\n      </li>\n    </ul>\n    <ul *ngIf=\"authService.isLoggedIn()\" class=\"navbar-nav ml-auto\">\n      <li *ngIf=\"authService.currentUser.role=='admin'\" class=\"nav-item\">\n        <a [routerLinkActive]=\"['active']\" class=\"nav-link text-capitalize\" href=\"#\" routerLink=\"/admin\">Admin</a>\n      </li>\n      <li class=\"nav-item\">\n        <a [routerLinkActive]=\"['active']\" class=\"nav-link text-capitalize\" href=\"#\" routerLink=\"/subscriber\">Subscriber</a>\n      </li>\n      <li class=\"nav-item\">\n        <a [routerLinkActive]=\"['active']\" class=\"nav-link\" href=\"#\" routerLink=\"/profile\">Profile</a>\n      </li>\n      <li class=\"nav-item\">\n        <a [routerLinkActive]=\"['active']\" class=\"nav-link\" href=\"#\" routerLink=\"/dashboard\">Dashboard</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"/\" (click)=\"onLogout()\">Logout</a>\n      </li>\n    </ul>\n  </div>\n</nav>"
 
 /***/ }),
 
@@ -588,7 +588,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\" *ngIf=\"user\">\n  <div class=\"row\">\n    <div class=\"col-lg-6 col-md-8 mx-auto\">\n      <div class=\"card shadow\">\n        <div class=\"card-header text-capitalize\">\n          Your Profile\n        </div>\n        <div class=\"card-body\">\n          <h2>{{user.name}}</h2>\n          <p>{{user.email}}</p>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-lg-6 col-md-8 mx-auto\">\n      <div class=\"card shadow\">\n        <div class=\"card-header text-capitalize\">\n          Your Profile\n        </div>\n        <div class=\"card-body\">\n          <h2>{{authService.currentUser.name}}</h2>\n          <p>Email: {{authService.currentUser.email}}</p>\n          <p>Role: {{authService.currentUser.role}}</p>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -619,14 +619,7 @@ var ProfileComponent = /** @class */ (function () {
     function ProfileComponent(authService) {
         this.authService = authService;
     }
-    ProfileComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.authService.getProfile().subscribe(function (profile) {
-            _this.user = profile.user;
-        }, function (err) {
-            console.log(err);
-        });
-    };
+    ProfileComponent.prototype.ngOnInit = function () { };
     ProfileComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: "app-profile",
@@ -868,11 +861,11 @@ var AdminGuard = /** @class */ (function () {
         this.router = router;
     }
     AdminGuard.prototype.canActivate = function () {
-        if (this.authService.isAdmin()) {
+        if (this.authService.currentUser.role == "admin") {
             return true;
         }
         else {
-            this.router.navigate(["/"]);
+            this.router.navigate(["/dashboard"]);
             return false;
         }
     };
@@ -987,21 +980,9 @@ var AuthService = /** @class */ (function () {
             headers: headers
         });
     };
-    AuthService.prototype.getProfile = function () {
-        this.loadToken();
-        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
-            "Content-Type": "application/json",
-            Authorization: this.authToken
-        });
-        // return this.http.get("http://localhost:5000/users/profile", {
-        return this.http.get("users/profile", {
-            headers: headers
-        });
-    };
     // store token and user data
     AuthService.prototype.storeUserData = function (token, user) {
         localStorage.setItem("id_token", token);
-        localStorage.setItem("user", JSON.stringify(user));
         this.authToken = token;
         this.user = user;
     };
@@ -1012,18 +993,19 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.isLoggedIn = function () {
         return Object(angular2_jwt__WEBPACK_IMPORTED_MODULE_3__["tokenNotExpired"])("id_token");
     };
-    AuthService.prototype.isAdmin = function () {
-        var user = JSON.parse(localStorage.getItem("user"));
-        var userRole = user["role"];
-        // console.log("this is the user: " + userRole);
-        if (userRole == "admin") {
-            return true;
-        }
-    };
+    Object.defineProperty(AuthService.prototype, "currentUser", {
+        get: function () {
+            this.loadToken();
+            if (!this.authToken)
+                return null;
+            return new angular2_jwt__WEBPACK_IMPORTED_MODULE_3__["JwtHelper"]().decodeToken(this.authToken);
+        },
+        enumerable: true,
+        configurable: true
+    });
     // signout
     AuthService.prototype.logout = function () {
         this.authToken = null;
-        this.user = null;
         localStorage.clear();
     };
     AuthService = __decorate([
