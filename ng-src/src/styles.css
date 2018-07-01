@@ -11,6 +11,11 @@ html {
   margin-bottom: 0 !important;
 }
 
+/* template driver forms simple way of adding error border input colors */
+.form-control.ng-touched.ng-invalid {
+  border: 2px solid #dc3545;
+}
+
 .login {
   /* background: #f5f5f5; */
   width: 100%;

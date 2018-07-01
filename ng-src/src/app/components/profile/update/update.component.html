@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <div class="card shadow" *ngIf="user">
+        <div class="card-header text-capitalize">
+          Edit Profile
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="form-group">
+              <label for="">Name</label>
+              <input type="text" name="name" class="form-control" placeholder="your name" [(ngModel)]="user.name" #updateName="ngModel"
+                required>
+              <span *ngIf="updateName.errors?.required && updateName.touched" class="small text-danger">name is required</span>
+            </div>
+            <input [disabled]="!f.valid" type="submit" value="Update" class="btn btn-outline-success btn-sm mr-1">
+            <a href="#" routerLink="/profile" class="btn btn-outline-danger btn-sm">Cancel</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

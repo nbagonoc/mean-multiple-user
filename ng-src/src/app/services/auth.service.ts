@@ -54,6 +54,32 @@ export class AuthService {
     return new JwtHelper().decodeToken(this.authToken);
   }
 
+  // CRUD USER
+  // view user
+  viewUser() {
+    this.loadToken();
+    let headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      Authorization: this.authToken
+    });
+    // return this.http.get("http://localhost:5000/users/viewUser", {
+    return this.http.get("users/viewUser", {
+      headers
+    });
+  }
+  // update user
+  updateUser(user) {
+    this.loadToken();
+    let headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      Authorization: this.authToken
+    });
+    // return this.http.put("http://localhost:5000/users/updateUser", user, {
+    return this.http.put("users/updateUser", user, {
+      headers
+    });
+  }
+
   // signout
   logout() {
     this.authToken = null;

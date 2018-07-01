@@ -1,14 +1,18 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-6 col-md-8 mx-auto">
-      <div class="card shadow">
+      <div class="card shadow" *ngIf="user">
         <div class="card-header text-capitalize">
           Your Profile
         </div>
         <div class="card-body">
-          <h2>{{authService.currentUser.name}}</h2>
-          <p>Email: {{authService.currentUser.email}}</p>
-          <p>Role: {{authService.currentUser.role}}</p>
+          <h3 class="text-capitalize">{{user.name}}</h3>
+          <p class="mb-0">Email: {{user.email}}</p>
+          <p class="mb-0">Role: {{user.role}}</p>
+          <!-- another method is below by getting the values via the payload form the token -->
+          <!-- <p>Role: {{authService.currentUser.role}}</p> -->
+          <hr>
+          <a href="#" routerLink="/profile/update" class="btn btn-outline-success btn-sm">Edit</a>
         </div>
       </div>
     </div>

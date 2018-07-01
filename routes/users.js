@@ -96,6 +96,43 @@ router.post("/authenticate", (req, res, next) => {
   }
 });
 
+// GET | view user
+router.get(
+  "/viewUser",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    User.findOne({ _id: req.user.id }, (err, user) => {
+      if (err) {
+        res.json({ success: false, message: "User not found" });
+      } else {
+        res.json({ success: true, user });
+      }
+    });
+  }
+);
+
+// PUT | update user
+router.put(
+  "/updateUser",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    if (!req.body.name) {
+      res.json({ success: false, msg: "name is required" });
+    } else {
+      User.findOne({ _id: req.user.id }, (err, user) => {
+        user.name = req.body.name;
+        user.save(err => {
+          if (err) {
+            res.json({ success: false, message: err });
+          } else {
+            res.json({ success: true, message: "user updated!" });
+          }
+        });
+      });
+    }
+  }
+);
+
 // test if the backend is secured
 router.get(
   "/test",
