@@ -25,6 +25,9 @@ import { AdminComponent } from "./components/admin/admin.component";
 import { SubscriberComponent } from "./components/subscriber/subscriber.component";
 import { UpdateComponent } from "./components/profile/update/update.component";
 import { UsersComponent } from "./components/admin/users/users.component";
+import { GetUserComponent } from "./components/admin/users/get-user/get-user.component";
+import { UpdateUserComponent } from "./components/admin/users/update-user/update-user.component";
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 // ROUTES
 const appRoutes: Routes = [
@@ -53,6 +56,16 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard, AdminGuard]
   },
   {
+    path: "admin/users/get",
+    component: GetUserComponent,
+    canActivate: [AuthGuard, AdminGuard]
+  },
+  {
+    path: "admin/users/update",
+    component: UpdateUserComponent,
+    canActivate: [AuthGuard, AdminGuard]
+  },
+  {
     path: "subscriber",
     component: SubscriberComponent,
     canActivate: [AuthGuard]
@@ -71,7 +84,10 @@ const appRoutes: Routes = [
     AdminComponent,
     SubscriberComponent,
     UpdateComponent,
-    UsersComponent
+    UsersComponent,
+    GetUserComponent,
+    UpdateUserComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

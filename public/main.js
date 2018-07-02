@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\n<div class=\"container mt-4\">\n    <div class=\"row\">\n        <div class=\"col-lg-6 col-md-8 mx-auto\">\n            <flash-messages></flash-messages>\n        </div>\n    </div>\n</div>\n<router-outlet></router-outlet>"
+module.exports = "<app-navbar></app-navbar>\n<div class=\"container mt-4\">\n    <flash-messages></flash-messages>\n</div>\n<router-outlet></router-outlet>"
 
 /***/ }),
 
@@ -112,6 +112,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_admin_admin_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/admin/admin.component */ "./src/app/components/admin/admin.component.ts");
 /* harmony import */ var _components_subscriber_subscriber_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/subscriber/subscriber.component */ "./src/app/components/subscriber/subscriber.component.ts");
 /* harmony import */ var _components_profile_update_update_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/profile/update/update.component */ "./src/app/components/profile/update/update.component.ts");
+/* harmony import */ var _components_admin_users_users_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/admin/users/users.component */ "./src/app/components/admin/users/users.component.ts");
+/* harmony import */ var _components_admin_users_get_user_get_user_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/admin/users/get-user/get-user.component */ "./src/app/components/admin/users/get-user/get-user.component.ts");
+/* harmony import */ var _components_admin_users_update_user_update_user_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/admin/users/update-user/update-user.component */ "./src/app/components/admin/users/update-user/update-user.component.ts");
+/* harmony import */ var _components_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/sidebar/sidebar.component */ "./src/app/components/sidebar/sidebar.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -131,6 +135,10 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 // COMPONENTS
+
+
+
+
 
 
 
@@ -163,6 +171,21 @@ var appRoutes = [
         canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"], _guards_admin_guard__WEBPACK_IMPORTED_MODULE_9__["AdminGuard"]]
     },
     {
+        path: "admin/users",
+        component: _components_admin_users_users_component__WEBPACK_IMPORTED_MODULE_20__["UsersComponent"],
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"], _guards_admin_guard__WEBPACK_IMPORTED_MODULE_9__["AdminGuard"]]
+    },
+    {
+        path: "admin/users/get",
+        component: _components_admin_users_get_user_get_user_component__WEBPACK_IMPORTED_MODULE_21__["GetUserComponent"],
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"], _guards_admin_guard__WEBPACK_IMPORTED_MODULE_9__["AdminGuard"]]
+    },
+    {
+        path: "admin/users/update",
+        component: _components_admin_users_update_user_update_user_component__WEBPACK_IMPORTED_MODULE_22__["UpdateUserComponent"],
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"], _guards_admin_guard__WEBPACK_IMPORTED_MODULE_9__["AdminGuard"]]
+    },
+    {
         path: "subscriber",
         component: _components_subscriber_subscriber_component__WEBPACK_IMPORTED_MODULE_18__["SubscriberComponent"],
         canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]]
@@ -183,7 +206,11 @@ var AppModule = /** @class */ (function () {
                 _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_16__["ProfileComponent"],
                 _components_admin_admin_component__WEBPACK_IMPORTED_MODULE_17__["AdminComponent"],
                 _components_subscriber_subscriber_component__WEBPACK_IMPORTED_MODULE_18__["SubscriberComponent"],
-                _components_profile_update_update_component__WEBPACK_IMPORTED_MODULE_19__["UpdateComponent"]
+                _components_profile_update_update_component__WEBPACK_IMPORTED_MODULE_19__["UpdateComponent"],
+                _components_admin_users_users_component__WEBPACK_IMPORTED_MODULE_20__["UsersComponent"],
+                _components_admin_users_get_user_get_user_component__WEBPACK_IMPORTED_MODULE_21__["GetUserComponent"],
+                _components_admin_users_update_user_update_user_component__WEBPACK_IMPORTED_MODULE_22__["UpdateUserComponent"],
+                _components_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_23__["SidebarComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -221,7 +248,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-lg-6 col-md-8 mx-auto\">\n      <div class=\"card shadow\">\n        <div class=\"card-header text-capitalize\">\n          Welcome to the admin page\n        </div>\n        <div class=\"card-body\">\n          This page is only accessible by an admin\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-4 mb-3\">\n      <app-sidebar></app-sidebar>\n    </div>\n    <div class=\"col-md-8\">\n      <div class=\"card shadow\">\n        <div class=\"card-header text-capitalize\">\n          Welcome to the admin page\n        </div>\n        <div class=\"card-body\">\n          This page is only accessible by an admin\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -266,6 +293,202 @@ var AdminComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/components/admin/users/get-user/get-user.component.css":
+/*!************************************************************************!*\
+  !*** ./src/app/components/admin/users/get-user/get-user.component.css ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/admin/users/get-user/get-user.component.html":
+/*!*************************************************************************!*\
+  !*** ./src/app/components/admin/users/get-user/get-user.component.html ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  get-user works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/admin/users/get-user/get-user.component.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/components/admin/users/get-user/get-user.component.ts ***!
+  \***********************************************************************/
+/*! exports provided: GetUserComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetUserComponent", function() { return GetUserComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var GetUserComponent = /** @class */ (function () {
+    function GetUserComponent() {
+    }
+    GetUserComponent.prototype.ngOnInit = function () {
+    };
+    GetUserComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-get-user',
+            template: __webpack_require__(/*! ./get-user.component.html */ "./src/app/components/admin/users/get-user/get-user.component.html"),
+            styles: [__webpack_require__(/*! ./get-user.component.css */ "./src/app/components/admin/users/get-user/get-user.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], GetUserComponent);
+    return GetUserComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/admin/users/update-user/update-user.component.css":
+/*!******************************************************************************!*\
+  !*** ./src/app/components/admin/users/update-user/update-user.component.css ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/admin/users/update-user/update-user.component.html":
+/*!*******************************************************************************!*\
+  !*** ./src/app/components/admin/users/update-user/update-user.component.html ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  update-user works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/admin/users/update-user/update-user.component.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/app/components/admin/users/update-user/update-user.component.ts ***!
+  \*****************************************************************************/
+/*! exports provided: UpdateUserComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UpdateUserComponent", function() { return UpdateUserComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var UpdateUserComponent = /** @class */ (function () {
+    function UpdateUserComponent() {
+    }
+    UpdateUserComponent.prototype.ngOnInit = function () {
+    };
+    UpdateUserComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-update-user',
+            template: __webpack_require__(/*! ./update-user.component.html */ "./src/app/components/admin/users/update-user/update-user.component.html"),
+            styles: [__webpack_require__(/*! ./update-user.component.css */ "./src/app/components/admin/users/update-user/update-user.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], UpdateUserComponent);
+    return UpdateUserComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/admin/users/users.component.css":
+/*!************************************************************!*\
+  !*** ./src/app/components/admin/users/users.component.css ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/admin/users/users.component.html":
+/*!*************************************************************!*\
+  !*** ./src/app/components/admin/users/users.component.html ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-4 mb-3\">\n      <app-sidebar></app-sidebar>\n    </div>\n    <div class=\"col-md-8\">\n      <div class=\"card\">\n        <div class=\"card-header text-capitalize\">\n          Users\n        </div>\n        <div class=\"card-body\">\n          <table class=\"table\">\n            <thead>\n              <tr>\n                <th>Name</th>\n                <th>Email</th>\n                <th>Role</th>\n                <th>Actions</th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr *ngFor=\"let user of users\">\n                <td>{{user.name}}</td>\n                <td>{{user.email}}</td>\n                <td>{{user.role}}</td>\n                <td>\n                  <a href=\"#\" routerLink=\"/admin/users/get\" class=\"btn btn-outline-success btn-sm mr-1\">view</a>\n                  <a href=\"#\" routerLink=\"/admin/users/update\" class=\"btn btn-outline-warning btn-sm mr-1\">edit</a>\n                  <a href=\"#\" class=\"btn btn-outline-danger btn-sm mr-1\">delete</a>\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components/admin/users/users.component.ts":
+/*!***********************************************************!*\
+  !*** ./src/app/components/admin/users/users.component.ts ***!
+  \***********************************************************/
+/*! exports provided: UsersComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsersComponent", function() { return UsersComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../services/auth.service */ "./src/app/services/auth.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var UsersComponent = /** @class */ (function () {
+    function UsersComponent(authService) {
+        this.authService = authService;
+    }
+    UsersComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.authService.viewUsers().subscribe(function (userDetails) {
+            _this.users = userDetails.users;
+        });
+    };
+    UsersComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: "app-users",
+            template: __webpack_require__(/*! ./users.component.html */ "./src/app/components/admin/users/users.component.html"),
+            styles: [__webpack_require__(/*! ./users.component.css */ "./src/app/components/admin/users/users.component.css")]
+        }),
+        __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]])
+    ], UsersComponent);
+    return UsersComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/components/dashboard/dashboard.component.css":
 /*!**************************************************************!*\
   !*** ./src/app/components/dashboard/dashboard.component.css ***!
@@ -284,7 +507,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-lg-6 col-md-8 mx-auto\">\n      <div class=\"card shadow\">\n        <div class=\"card-header text-capitalize\">\n          Welcome to the dashboard\n        </div>\n        <div class=\"card-body\">\n          A Mean Stack Demo with:\n          <ul class=\"\">\n            <li>User Authentication using:</li>\n            <ul>\n              <li>Passport</li>\n              <li>Passport JWT</li>\n              <li>jsonwebtoken</li>\n            </ul>\n            <li>Route Guards</li>\n            <ul>\n              <li>Anuglar2-jwt</li>\n            </ul>\n            <li>Form validation</li>\n            <ul>\n              <li>Client</li>\n              <li>Server</li>\n            </ul>\n          </ul>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-4 mb-3\">\n      <app-sidebar></app-sidebar>\n    </div>\n    <div class=\"col-md-8\">\n      <div class=\"card\">\n        <div class=\"card-header text-capitalize\">\n          Welcome to the dashboard\n        </div>\n        <div class=\"card-body\">\n          A Mean Stack Demo with:\n          <ul class=\"\">\n            <li>User Authentication using:</li>\n            <ul>\n              <li>Passport</li>\n              <li>Passport JWT</li>\n              <li>jsonwebtoken</li>\n            </ul>\n            <li>Route Guards</li>\n            <ul>\n              <li>Anuglar2-jwt</li>\n            </ul>\n            <li>Form validation</li>\n            <ul>\n              <li>Client</li>\n              <li>Server</li>\n            </ul>\n          </ul>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -528,7 +751,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-md navbar-light bg-light shadow\">\n  <a class=\"navbar-brand\" href=\"#\" routerLink=\"/\">Mean</a>\n  <button class=\"navbar-toggler hidden-lg-up\" type=\"button\" data-toggle=\"collapse\" data-target=\"#collapsibleNavId\" aria-controls=\"collapsibleNavId\"\n    aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <div class=\"collapse navbar-collapse\" id=\"collapsibleNavId\">\n    <ul class=\"navbar-nav\">\n      <li class=\"nav-item\">\n        <a [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\" class=\"nav-link\" href=\"#\" routerLink=\"/\">Home\n        </a>\n      </li>\n    </ul>\n    <ul *ngIf=\"!authService.isLoggedIn()\" class=\"navbar-nav ml-auto\">\n      <li class=\"nav-item\">\n        <a [routerLinkActive]=\"['active']\" class=\"nav-link\" href=\"#\" routerLink=\"/register\">Register</a>\n      </li>\n      <li class=\"nav-item\">\n        <a [routerLinkActive]=\"['active']\" class=\"nav-link\" href=\"#\" routerLink=\"/login\">Login</a>\n      </li>\n    </ul>\n    <ul *ngIf=\"authService.isLoggedIn()\" class=\"navbar-nav ml-auto\">\n      <li *ngIf=\"authService.currentUser.role=='admin'\" class=\"nav-item\">\n        <a [routerLinkActive]=\"['active']\" class=\"nav-link text-capitalize\" href=\"#\" routerLink=\"/admin\">Admin</a>\n      </li>\n      <li class=\"nav-item\">\n        <a [routerLinkActive]=\"['active']\" class=\"nav-link text-capitalize\" href=\"#\" routerLink=\"/subscriber\">Subscriber</a>\n      </li>\n      <li class=\"nav-item\">\n        <a [routerLinkActive]=\"['active']\" class=\"nav-link\" href=\"#\" routerLink=\"/profile\">Profile</a>\n      </li>\n      <li class=\"nav-item\">\n        <a [routerLinkActive]=\"['active']\" class=\"nav-link\" href=\"#\" routerLink=\"/dashboard\">Dashboard</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"/\" (click)=\"onLogout()\">Logout</a>\n      </li>\n    </ul>\n  </div>\n</nav>"
+module.exports = "<nav class=\"navbar navbar-expand-md navbar-light bg-light border-bottom\">\n  <div class=\"container\">\n    <a class=\"navbar-brand\" href=\"#\" routerLink=\"/\">Mean</a>\n    <button class=\"navbar-toggler hidden-lg-up\" type=\"button\" data-toggle=\"collapse\" data-target=\"#collapsibleNavId\" aria-controls=\"collapsibleNavId\"\n      aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"collapsibleNavId\">\n      <ul class=\"navbar-nav\">\n        <li class=\"nav-item\">\n          <a [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\" class=\"nav-link\" href=\"#\" routerLink=\"/\">Home\n          </a>\n        </li>\n      </ul>\n      <ul *ngIf=\"!authService.isLoggedIn()\" class=\"navbar-nav ml-auto\">\n        <li class=\"nav-item\">\n          <a [routerLinkActive]=\"['active']\" class=\"nav-link\" href=\"#\" routerLink=\"/register\">Register</a>\n        </li>\n        <li class=\"nav-item\">\n          <a [routerLinkActive]=\"['active']\" class=\"nav-link\" href=\"#\" routerLink=\"/login\">Login</a>\n        </li>\n      </ul>\n      <ul *ngIf=\"authService.isLoggedIn()\" class=\"navbar-nav ml-auto\">\n        <!-- <li *ngIf=\"authService.currentUser.role=='admin'\" class=\"nav-item\">\n        <a [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\" class=\"nav-link text-capitalize\" href=\"#\" routerLink=\"/admin\">Admin</a>\n      </li> -->\n        <!-- <li *ngIf=\"authService.currentUser.role=='admin'\" class=\"nav-item\">\n        <a [routerLinkActive]=\"['active']\" class=\"nav-link text-capitalize\" href=\"#\" routerLink=\"/admin/users\">Users</a>\n      </li> -->\n        <!-- <li class=\"nav-item\">\n        <a [routerLinkActive]=\"['active']\" class=\"nav-link text-capitalize\" href=\"#\" routerLink=\"/subscriber\">Subscriber</a>\n      </li> -->\n        <!-- <li class=\"nav-item\">\n        <a [routerLinkActive]=\"['active']\" class=\"nav-link\" href=\"#\" routerLink=\"/profile\">Profile</a>\n      </li> -->\n        <li class=\"nav-item dropdown\">\n          <a class=\"nav-link dropdown-toggle text-capitalize\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n            aria-expanded=\"false\">\n            {{authService.currentUser.name}}\n          </a>\n          <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\">\n            <a class=\"dropdown-item\" href=\"#\" routerLink=\"/dashboard\">Dashboard</a>\n            <a class=\"dropdown-item\" href=\"/\" (click)=\"onLogout()\">Logout</a>\n          </div>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>"
 
 /***/ }),
 
@@ -596,7 +819,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-lg-6 col-md-8 mx-auto\">\n      <div class=\"card shadow\" *ngIf=\"user\">\n        <div class=\"card-header text-capitalize\">\n          Your Profile\n        </div>\n        <div class=\"card-body\">\n          <h3 class=\"text-capitalize\">{{user.name}}</h3>\n          <p class=\"mb-0\">Email: {{user.email}}</p>\n          <p class=\"mb-0\">Role: {{user.role}}</p>\n          <!-- another method is below by getting the values via the payload form the token -->\n          <!-- <p>Role: {{authService.currentUser.role}}</p> -->\n          <hr>\n          <a href=\"#\" routerLink=\"/profile/update\" class=\"btn btn-outline-success btn-sm\">Edit</a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-4 mb-3\">\n      <app-sidebar></app-sidebar>\n    </div>\n    <div class=\"col-md-8\">\n      <div class=\"card\" *ngIf=\"user\">\n        <div class=\"card-header text-capitalize\">\n          Your Profile\n        </div>\n        <div class=\"card-body\">\n          <h3 class=\"text-capitalize\">{{user.name}}</h3>\n          <p class=\"mb-0\">Email: {{user.email}}</p>\n          <p class=\"mb-0\">Role: {{user.role}}</p>\n          <!-- another method is below by getting the values via the payload form the token -->\n          <!-- <p>Role: {{authService.currentUser.role}}</p> -->\n          <hr>\n          <a href=\"#\" routerLink=\"/profile/update\" class=\"btn btn-outline-success btn-sm\">Edit</a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -666,7 +889,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-lg-6 col-md-8 mx-auto\">\n      <div class=\"card shadow\" *ngIf=\"user\">\n        <div class=\"card-header text-capitalize\">\n          Edit Profile\n        </div>\n        <div class=\"card-body\">\n          <form (ngSubmit)=\"onSubmit(f)\" #f=\"ngForm\">\n            <div class=\"form-group\">\n              <label for=\"\">Name</label>\n              <input type=\"text\" name=\"name\" class=\"form-control\" placeholder=\"your name\" [(ngModel)]=\"user.name\" #updateName=\"ngModel\"\n                required>\n              <span *ngIf=\"updateName.errors?.required && updateName.touched\" class=\"small text-danger\">name is required</span>\n            </div>\n            <input [disabled]=\"!f.valid\" type=\"submit\" value=\"Update\" class=\"btn btn-outline-success btn-sm mr-1\">\n            <a href=\"#\" routerLink=\"/profile\" class=\"btn btn-outline-danger btn-sm\">Cancel</a>\n          </form>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-4 mb-3\">\n      <app-sidebar></app-sidebar>\n    </div>\n    <div class=\"col-md-8\">\n      <div class=\"card\" *ngIf=\"user\">\n        <div class=\"card-header text-capitalize\">\n          Edit Profile\n        </div>\n        <div class=\"card-body\">\n          <form (ngSubmit)=\"onSubmit(f)\" #f=\"ngForm\">\n            <div class=\"form-group\">\n              <label for=\"\">Name</label>\n              <input type=\"text\" name=\"name\" class=\"form-control\" placeholder=\"your name\" [(ngModel)]=\"user.name\" #updateName=\"ngModel\"\n                required>\n              <span *ngIf=\"updateName.errors?.required && updateName.touched\" class=\"small text-danger\">name is required</span>\n            </div>\n            <input [disabled]=\"!f.valid\" type=\"submit\" value=\"Update\" class=\"btn btn-outline-success btn-sm mr-1\">\n            <a href=\"#\" routerLink=\"/profile\" class=\"btn btn-outline-danger btn-sm\">Cancel</a>\n          </form>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -869,6 +1092,71 @@ var RegisterComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/components/sidebar/sidebar.component.css":
+/*!**********************************************************!*\
+  !*** ./src/app/components/sidebar/sidebar.component.css ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/sidebar/sidebar.component.html":
+/*!***********************************************************!*\
+  !*** ./src/app/components/sidebar/sidebar.component.html ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ul class=\"list-group\">\n  <li class=\"list-group-item\">\n    <a href=\"#\" class=\"text-dark\" routerLink=\"/dashboard\">Dashboard</a>\n  </li>\n  <li class=\"list-group-item\">\n    <a href=\"#\" class=\"text-dark\" routerLink=\"/profile\">Profile</a>\n  </li>\n  <li *ngIf=\"authService.currentUser.role=='admin'\" class=\"list-group-item\">\n    <a href=\"#\" class=\"text-dark\" routerLink=\"/admin/users\">Users</a>\n  </li>\n</ul>"
+
+/***/ }),
+
+/***/ "./src/app/components/sidebar/sidebar.component.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/components/sidebar/sidebar.component.ts ***!
+  \*********************************************************/
+/*! exports provided: SidebarComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SidebarComponent", function() { return SidebarComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/auth.service */ "./src/app/services/auth.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var SidebarComponent = /** @class */ (function () {
+    function SidebarComponent(authService) {
+        this.authService = authService;
+    }
+    SidebarComponent.prototype.ngOnInit = function () { };
+    SidebarComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: "app-sidebar",
+            template: __webpack_require__(/*! ./sidebar.component.html */ "./src/app/components/sidebar/sidebar.component.html"),
+            styles: [__webpack_require__(/*! ./sidebar.component.css */ "./src/app/components/sidebar/sidebar.component.css")]
+        }),
+        __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]])
+    ], SidebarComponent);
+    return SidebarComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/components/subscriber/subscriber.component.css":
 /*!****************************************************************!*\
   !*** ./src/app/components/subscriber/subscriber.component.css ***!
@@ -887,7 +1175,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-lg-6 col-md-8 mx-auto\">\n      <div class=\"card shadow\">\n        <div class=\"card-header text-capitalize\">\n          Welcome to the and admin and subscriber page\n        </div>\n        <div class=\"card-body\">\n          This page is accessible by the admin and subscriber\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-8 mx-auto\">\n      <div class=\"card shadow\">\n        <div class=\"card-header text-capitalize\">\n          Welcome to the and admin and subscriber page\n        </div>\n        <div class=\"card-body\">\n          This page is accessible by the admin and subscriber\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -1126,7 +1414,31 @@ var AuthService = /** @class */ (function () {
         configurable: true
     });
     // CRUD USER
-    // view user
+    // view users
+    AuthService.prototype.viewUsers = function () {
+        this.loadToken();
+        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
+            "Content-Type": "application/json",
+            Authorization: this.authToken
+        });
+        // return this.http.get("http://localhost:5000/users/viewUsers", {
+        return this.http.get("users/viewUsers", {
+            headers: headers
+        });
+    };
+    // get a user
+    AuthService.prototype.getUser = function () {
+        this.loadToken();
+        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
+            "Content-Type": "application/json",
+            Authorization: this.authToken
+        });
+        // return this.http.get("http://localhost:5000/users/getUser", {
+        return this.http.get("users/getUser", {
+            headers: headers
+        });
+    };
+    // view current user
     AuthService.prototype.viewUser = function () {
         this.loadToken();
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
