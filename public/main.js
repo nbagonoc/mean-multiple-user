@@ -176,12 +176,12 @@ var appRoutes = [
         canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"], _guards_admin_guard__WEBPACK_IMPORTED_MODULE_9__["AdminGuard"]]
     },
     {
-        path: "admin/users/get",
+        path: "admin/users/get/:id",
         component: _components_admin_users_get_user_get_user_component__WEBPACK_IMPORTED_MODULE_21__["GetUserComponent"],
         canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"], _guards_admin_guard__WEBPACK_IMPORTED_MODULE_9__["AdminGuard"]]
     },
     {
-        path: "admin/users/update",
+        path: "admin/users/update/:id",
         component: _components_admin_users_update_user_update_user_component__WEBPACK_IMPORTED_MODULE_22__["UpdateUserComponent"],
         canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"], _guards_admin_guard__WEBPACK_IMPORTED_MODULE_9__["AdminGuard"]]
     },
@@ -189,7 +189,8 @@ var appRoutes = [
         path: "subscriber",
         component: _components_subscriber_subscriber_component__WEBPACK_IMPORTED_MODULE_18__["SubscriberComponent"],
         canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]]
-    }
+    },
+    { path: "**", component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_14__["HomeComponent"] }
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -311,7 +312,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  get-user works!\n</p>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-4 mb-3\">\n      <app-sidebar></app-sidebar>\n    </div>\n    <div class=\"col-md-8\">\n      <div class=\"card\" *ngIf=\"user\">\n        <div class=\"card-header text-capitalize\">\n          Your Profile\n        </div>\n        <div class=\"card-body\">\n          <h3 class=\"text-capitalize\">{{user.name}}</h3>\n          <p class=\"mb-0\">Email: {{user.email}}</p>\n          <p class=\"mb-0\">Role: {{user.role}}</p>\n          <hr>\n          <a href=\"#\" routerLink=\"/admin/users\" class=\"btn btn-outline-success btn-sm mr-1\">back</a>\n          <a href=\"#\" [routerLink]=\"['/admin/users/update/', user._id]\" class=\"btn btn-outline-warning btn-sm mr-1\">edit</a>\n          <button (click)=\"onDelete()\" class=\"btn btn-outline-danger btn-sm mr-1\">delete</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -326,6 +327,10 @@ module.exports = "<p>\n  get-user works!\n</p>\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetUserComponent", function() { return GetUserComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular2-flash-messages */ "./node_modules/angular2-flash-messages/module/index.js");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -336,18 +341,44 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
 var GetUserComponent = /** @class */ (function () {
-    function GetUserComponent() {
+    function GetUserComponent(authService, activedRoute, router, flashMessages) {
+        this.authService = authService;
+        this.activedRoute = activedRoute;
+        this.router = router;
+        this.flashMessages = flashMessages;
     }
+    GetUserComponent.prototype.onDelete = function () {
+        var _this = this;
+        this.currentUrl = this.activedRoute.snapshot.params;
+        this.authService.deleteUser(this.currentUrl.id).subscribe(function (userDetails) {
+            _this.flashMessages.show("Successfully updated user", {
+                cssClass: "alert-success",
+                timeout: 5000
+            });
+            _this.router.navigate(["/admin/users"]);
+        });
+    };
     GetUserComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.currentUrl = this.activedRoute.snapshot.params;
+        this.authService.getUser(this.currentUrl.id).subscribe(function (userDetails) {
+            _this.user = userDetails.user;
+        });
     };
     GetUserComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-get-user',
+            selector: "app-get-user",
             template: __webpack_require__(/*! ./get-user.component.html */ "./src/app/components/admin/users/get-user/get-user.component.html"),
             styles: [__webpack_require__(/*! ./get-user.component.css */ "./src/app/components/admin/users/get-user/get-user.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__["FlashMessagesService"]])
     ], GetUserComponent);
     return GetUserComponent;
 }());
@@ -374,7 +405,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  update-user works!\n</p>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-4 mb-3\">\n      <app-sidebar></app-sidebar>\n    </div>\n    <div class=\"col-md-8\">\n      <div class=\"card\" *ngIf=\"user\">\n        <div class=\"card-header text-capitalize\">\n          Edit user\n        </div>\n        <div class=\"card-body\">\n          <form (ngSubmit)=\"onSubmit(f)\" #f=\"ngForm\">\n            <div class=\"form-group\">\n              <label for=\"\">Name</label>\n              <input type=\"text\" name=\"name\" class=\"form-control\" placeholder=\"your name\" [(ngModel)]=\"user.name\" #updateName=\"ngModel\"\n                required>\n              <span *ngIf=\"updateName.errors?.required && updateName.touched\" class=\"small text-danger\">name is required</span>\n            </div>\n            <input [disabled]=\"!f.valid\" type=\"submit\" value=\"Update\" class=\"btn btn-outline-success btn-sm mr-1\">\n            <a href=\"#\" [routerLink]=\"['/admin/users/get/', user._id]\" class=\"btn btn-outline-danger btn-sm\">Cancel</a>\n          </form>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -389,6 +420,10 @@ module.exports = "<p>\n  update-user works!\n</p>\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UpdateUserComponent", function() { return UpdateUserComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular2-flash-messages */ "./node_modules/angular2-flash-messages/module/index.js");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -399,18 +434,43 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
 var UpdateUserComponent = /** @class */ (function () {
-    function UpdateUserComponent() {
+    function UpdateUserComponent(authService, activedRoute, router, flashMessages) {
+        this.authService = authService;
+        this.activedRoute = activedRoute;
+        this.router = router;
+        this.flashMessages = flashMessages;
     }
+    UpdateUserComponent.prototype.onSubmit = function (f) {
+        var _this = this;
+        this.authService.updateUser(this.user).subscribe(function (data) {
+            _this.flashMessages.show("Successfully updated user", {
+                cssClass: "alert-success",
+                timeout: 5000
+            });
+            _this.router.navigate(["/admin/users"]);
+        });
+    };
     UpdateUserComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.currentUrl = this.activedRoute.snapshot.params;
+        this.authService.getUser(this.currentUrl.id).subscribe(function (userDetails) {
+            _this.user = userDetails.user;
+        });
     };
     UpdateUserComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-update-user',
+            selector: "app-update-user",
             template: __webpack_require__(/*! ./update-user.component.html */ "./src/app/components/admin/users/update-user/update-user.component.html"),
             styles: [__webpack_require__(/*! ./update-user.component.css */ "./src/app/components/admin/users/update-user/update-user.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__["FlashMessagesService"]])
     ], UpdateUserComponent);
     return UpdateUserComponent;
 }());
@@ -437,7 +497,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-4 mb-3\">\n      <app-sidebar></app-sidebar>\n    </div>\n    <div class=\"col-md-8\">\n      <div class=\"card\">\n        <div class=\"card-header text-capitalize\">\n          Users\n        </div>\n        <div class=\"card-body\">\n          <table class=\"table\">\n            <thead>\n              <tr>\n                <th>Name</th>\n                <th>Email</th>\n                <th>Role</th>\n                <th>Actions</th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr *ngFor=\"let user of users\">\n                <td>{{user.name}}</td>\n                <td>{{user.email}}</td>\n                <td>{{user.role}}</td>\n                <td>\n                  <a href=\"#\" routerLink=\"/admin/users/get\" class=\"btn btn-outline-success btn-sm mr-1\">view</a>\n                  <a href=\"#\" routerLink=\"/admin/users/update\" class=\"btn btn-outline-warning btn-sm mr-1\">edit</a>\n                  <a href=\"#\" class=\"btn btn-outline-danger btn-sm mr-1\">delete</a>\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-4 mb-3\">\n      <app-sidebar></app-sidebar>\n    </div>\n    <div class=\"col-md-8\">\n      <div class=\"card\">\n        <div class=\"card-header text-capitalize\">\n          Users\n        </div>\n        <div class=\"card-body\">\n          <table class=\"table\">\n            <thead>\n              <tr>\n                <th>Name</th>\n                <th>Email</th>\n                <th>Role</th>\n                <th>Actions</th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr *ngFor=\"let user of users\">\n                <td>{{user.name}}</td>\n                <td>{{user.email}}</td>\n                <td>{{user.role}}</td>\n                <td>\n                  <a href=\"#\" [routerLink]=\"['/admin/users/get/', user._id]\" class=\"btn btn-outline-success btn-sm mr-1\">view</a>\n                  <a href=\"#\" [routerLink]=\"['/admin/users/update/', user._id]\" class=\"btn btn-outline-warning btn-sm mr-1\">edit</a>\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -633,7 +693,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-lg-6 col-md-8 mx-auto\">\n      <div class=\"card shadow\">\n        <div class=\"card-header\">\n          Login\n        </div>\n        <div class=\"card-body\">\n          <form (submit)=\"onSubmit()\">\n            <div class=\"form-group\">\n              <label for=\"\">Email</label>\n              <input type=\"text\" name=\"email\" class=\"form-control\" placeholder=\"your email\" [(ngModel)]=\"email\" #loginEmail=\"ngModel\" required>\n              <span *ngIf=\"loginEmail.errors?.required && loginEmail.touched\" class=\"small text-danger\">email is required</span>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"\">Password</label>\n              <input type=\"password\" name=\"password\" class=\"form-control\" placeholder=\"your password\" [(ngModel)]=\"password\" #loginPassword=\"ngModel\"\n                required>\n              <span *ngIf=\"loginPassword.errors?.required && loginPassword.touched\" class=\"small text-danger\">Password is required</span>\n            </div>\n            <input type=\"submit\" value=\"Login\" class=\"btn btn-outline-success\">\n          </form>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-lg-6 col-md-8 mx-auto\">\n      <div class=\"card\">\n        <div class=\"card-header\">\n          Login\n        </div>\n        <div class=\"card-body\">\n          <form (ngSubmit)=\"onSubmit(f)\" #f=\"ngForm\">\n            <div class=\"form-group\">\n              <label for=\"\">Email</label>\n              <input type=\"text\" name=\"email\" class=\"form-control\" placeholder=\"your email\" [(ngModel)]=\"email\" #loginEmail=\"ngModel\" required>\n              <span *ngIf=\"loginEmail.errors?.required && loginEmail.touched\" class=\"small text-danger\">email is required</span>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"\">Password</label>\n              <input type=\"password\" name=\"password\" class=\"form-control\" placeholder=\"your password\" [(ngModel)]=\"password\" #loginPassword=\"ngModel\"\n                required>\n              <span *ngIf=\"loginPassword.errors?.required && loginPassword.touched\" class=\"small text-danger\">Password is required</span>\n            </div>\n            <input [disabled]=\"!f.valid\" type=\"submit\" value=\"Login\" class=\"btn btn-outline-success\">\n          </form>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -978,7 +1038,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-lg-6 col-md-8 mx-auto\">\n      <div class=\"card shadow\">\n        <div class=\"card-header\">\n          Register\n        </div>\n        <div class=\"card-body\">\n          <form (submit)=\"onSubmit()\">\n            <div class=\"form-group\">\n              <label for=\"\">Name</label>\n              <input type=\"text\" name=\"name\" class=\"form-control\" placeholder=\"your name\" [(ngModel)]=\"name\" #registerName=\"ngModel\" required>\n              <span *ngIf=\"registerName.errors?.required && registerName.touched\" class=\"small text-danger\">name is required</span>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"\">Email</label>\n              <input type=\"text\" name=\"email\" class=\"form-control\" placeholder=\"your email\" [(ngModel)]=\"email\" #registerEmail=\"ngModel\"\n                required>\n              <span *ngIf=\"registerEmail.errors?.required && registerEmail.touched\" class=\"small text-danger\">email is required</span>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"\">Password</label>\n              <input type=\"password\" name=\"password\" class=\"form-control\" placeholder=\"your password\" [(ngModel)]=\"password\" #registerPassword=\"ngModel\"\n                required>\n              <span *ngIf=\"registerPassword.errors?.required && registerPassword.touched\" class=\"small text-danger\">Password is required</span>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"\">Confirm Password</label>\n              <input type=\"password\" name=\"password2\" class=\"form-control\" placeholder=\"confirm your password\" [(ngModel)]=\"password2\"\n                #registerPassword2=\"ngModel\" required>\n              <span *ngIf=\"registerPassword2.errors?.required && registerPassword2.touched\" class=\"small text-danger\">confirm password is required</span>\n            </div>\n            <input type=\"submit\" value=\"Register\" class=\"btn btn-outline-success\">\n          </form>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-lg-6 col-md-8 mx-auto\">\n      <div class=\"card\">\n        <div class=\"card-header\">\n          Register\n        </div>\n        <div class=\"card-body\">\n          <form (ngSubmit)=\"onSubmit(f)\" #f=\"ngForm\">\n            <div class=\"form-group\">\n              <label for=\"\">Name</label>\n              <input type=\"text\" name=\"name\" class=\"form-control\" placeholder=\"your name\" [(ngModel)]=\"name\" #registerName=\"ngModel\" required>\n              <span *ngIf=\"registerName.errors?.required && registerName.touched\" class=\"small text-danger\">name is required</span>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"\">Email</label>\n              <input type=\"text\" name=\"email\" class=\"form-control\" placeholder=\"your email\" [(ngModel)]=\"email\" #registerEmail=\"ngModel\"\n                required>\n              <span *ngIf=\"registerEmail.errors?.required && registerEmail.touched\" class=\"small text-danger\">email is required</span>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"\">Password</label>\n              <input type=\"password\" name=\"password\" class=\"form-control\" placeholder=\"your password\" [(ngModel)]=\"password\" #registerPassword=\"ngModel\"\n                required>\n              <span *ngIf=\"registerPassword.errors?.required && registerPassword.touched\" class=\"small text-danger\">Password is required</span>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"\">Confirm Password</label>\n              <input type=\"password\" name=\"password2\" class=\"form-control\" placeholder=\"confirm your password\" [(ngModel)]=\"password2\"\n                #registerPassword2=\"ngModel\" required>\n              <span *ngIf=\"registerPassword2.errors?.required && registerPassword2.touched\" class=\"small text-danger\">confirm password is required</span>\n            </div>\n            <input [disabled]=\"!f.valid\" type=\"submit\" value=\"Register\" class=\"btn btn-outline-success\">\n          </form>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -1427,18 +1487,18 @@ var AuthService = /** @class */ (function () {
         });
     };
     // get a user
-    AuthService.prototype.getUser = function () {
+    AuthService.prototype.getUser = function (id) {
         this.loadToken();
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
             "Content-Type": "application/json",
             Authorization: this.authToken
         });
-        // return this.http.get("http://localhost:5000/users/getUser", {
-        return this.http.get("users/getUser", {
+        // return this.http.get("http://localhost:5000/users/getUser/" + id, {
+        return this.http.get("users/getUser/" + id, {
             headers: headers
         });
     };
-    // view current user
+    // view current user for profile
     AuthService.prototype.viewUser = function () {
         this.loadToken();
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
@@ -1457,8 +1517,19 @@ var AuthService = /** @class */ (function () {
             "Content-Type": "application/json",
             Authorization: this.authToken
         });
-        // return this.http.put("http://localhost:5000/users/updateUser", user, {
-        return this.http.put("users/updateUser", user, {
+        // return this.http.put("http://localhost:5000/users/updateUser/", user, {
+        return this.http.put("users/updateUser/", user, {
+            headers: headers
+        });
+    };
+    AuthService.prototype.deleteUser = function (id) {
+        this.loadToken();
+        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
+            "Content-Type": "application/json",
+            Authorization: this.authToken
+        });
+        // return this.http.delete("http://localhost:5000/users/deleteUser/" + id, {
+        return this.http.delete("users/deleteUser/" + id, {
             headers: headers
         });
     };

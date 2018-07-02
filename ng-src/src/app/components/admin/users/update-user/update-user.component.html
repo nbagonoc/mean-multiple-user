@@ -1,3 +1,26 @@
-<p>
-  update-user works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-md-8">
+      <div class="card" *ngIf="user">
+        <div class="card-header text-capitalize">
+          Edit user
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="form-group">
+              <label for="">Name</label>
+              <input type="text" name="name" class="form-control" placeholder="your name" [(ngModel)]="user.name" #updateName="ngModel"
+                required>
+              <span *ngIf="updateName.errors?.required && updateName.touched" class="small text-danger">name is required</span>
+            </div>
+            <input [disabled]="!f.valid" type="submit" value="Update" class="btn btn-outline-success btn-sm mr-1">
+            <a href="#" [routerLink]="['/admin/users/get/', user._id]" class="btn btn-outline-danger btn-sm">Cancel</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

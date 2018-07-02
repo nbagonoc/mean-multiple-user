@@ -68,18 +68,18 @@ export class AuthService {
     });
   }
   // get a user
-  getUser() {
+  getUser(id) {
     this.loadToken();
     let headers = new HttpHeaders({
       "Content-Type": "application/json",
       Authorization: this.authToken
     });
-    // return this.http.get("http://localhost:5000/users/getUser", {
-    return this.http.get("users/getUser", {
+    // return this.http.get("http://localhost:5000/users/getUser/" + id, {
+    return this.http.get("users/getUser/" + id, {
       headers
     });
   }
-  // view current user
+  // view current user for profile
   viewUser() {
     this.loadToken();
     let headers = new HttpHeaders({
@@ -98,8 +98,20 @@ export class AuthService {
       "Content-Type": "application/json",
       Authorization: this.authToken
     });
-    // return this.http.put("http://localhost:5000/users/updateUser", user, {
-    return this.http.put("users/updateUser", user, {
+    // return this.http.put("http://localhost:5000/users/updateUser/", user, {
+    return this.http.put("users/updateUser/", user, {
+      headers
+    });
+  }
+
+  deleteUser(id) {
+    this.loadToken();
+    let headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      Authorization: this.authToken
+    });
+    // return this.http.delete("http://localhost:5000/users/deleteUser/" + id, {
+    return this.http.delete("users/deleteUser/" + id, {
       headers
     });
   }

@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-6 col-md-8 mx-auto">
-      <div class="card shadow">
+      <div class="card">
         <div class="card-header">
           Register
         </div>
         <div class="card-body">
-          <form (submit)="onSubmit()">
+          <form (ngSubmit)="onSubmit(f)" #f="ngForm">
             <div class="form-group">
               <label for="">Name</label>
               <input type="text" name="name" class="form-control" placeholder="your name" [(ngModel)]="name" #registerName="ngModel" required>
@@ -30,7 +30,7 @@
                 #registerPassword2="ngModel" required>
               <span *ngIf="registerPassword2.errors?.required && registerPassword2.touched" class="small text-danger">confirm password is required</span>
             </div>
-            <input type="submit" value="Register" class="btn btn-outline-success">
+            <input [disabled]="!f.valid" type="submit" value="Register" class="btn btn-outline-success">
           </form>
         </div>
       </div>

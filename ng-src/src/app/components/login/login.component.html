@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-6 col-md-8 mx-auto">
-      <div class="card shadow">
+      <div class="card">
         <div class="card-header">
           Login
         </div>
         <div class="card-body">
-          <form (submit)="onSubmit()">
+          <form (ngSubmit)="onSubmit(f)" #f="ngForm">
             <div class="form-group">
               <label for="">Email</label>
               <input type="text" name="email" class="form-control" placeholder="your email" [(ngModel)]="email" #loginEmail="ngModel" required>
@@ -18,7 +18,7 @@
                 required>
               <span *ngIf="loginPassword.errors?.required && loginPassword.touched" class="small text-danger">Password is required</span>
             </div>
-            <input type="submit" value="Login" class="btn btn-outline-success">
+            <input [disabled]="!f.valid" type="submit" value="Login" class="btn btn-outline-success">
           </form>
         </div>
       </div>

@@ -96,7 +96,7 @@ router.post("/authenticate", (req, res, next) => {
   }
 });
 
-// GET | view users
+// GET | view users list
 router.get(
   "/viewUsers",
   passport.authenticate("jwt", { session: false }),
@@ -111,12 +111,27 @@ router.get(
   }
 );
 
-// GET | view user
+// GET | view user profile
 router.get(
   "/viewUser",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     User.findOne({ _id: req.user.id }, (err, user) => {
+      if (err) {
+        res.json({ success: false, message: "User not found" });
+      } else {
+        res.json({ success: true, user });
+      }
+    });
+  }
+);
+
+// GET | get user
+router.get(
+  "/getUser/:id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    User.findOne({ _id: req.params.id }, (err, user) => {
       if (err) {
         res.json({ success: false, message: "User not found" });
       } else {
@@ -134,7 +149,7 @@ router.put(
     if (!req.body.name) {
       res.json({ success: false, msg: "name is required" });
     } else {
-      User.findOne({ _id: req.user.id }, (err, user) => {
+      User.findOne({ _id: req.body._id }, (err, user) => {
         user.name = req.body.name;
         user.save(err => {
           if (err) {
@@ -147,6 +162,19 @@ router.put(
     }
   }
 );
+
+// DELETE | delete user
+router.delete("/deleteUser/:id", (req, res) => {
+  User.findOne({ _id: req.params.id }, (err, user) => {
+    user.remove(err => {
+      if (err) {
+        res.json({ success: false, message: err });
+      } else {
+        res.json({ success: true, message: "blog post deleted" });
+      }
+    });
+  });
+});
 
 // test if the backend is secured
 router.get(
