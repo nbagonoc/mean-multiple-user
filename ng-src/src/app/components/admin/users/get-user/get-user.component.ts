@@ -22,7 +22,7 @@ export class GetUserComponent implements OnInit {
   onDelete() {
     this.currentUrl = this.activedRoute.snapshot.params;
     this.authService.deleteUser(this.currentUrl.id).subscribe(userDetails => {
-      this.flashMessages.show("Successfully updated user", {
+      this.flashMessages.show("Successfully deleted user", {
         cssClass: "alert-success",
         timeout: 5000
       });

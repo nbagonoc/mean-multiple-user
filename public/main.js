@@ -355,7 +355,7 @@ var GetUserComponent = /** @class */ (function () {
         var _this = this;
         this.currentUrl = this.activedRoute.snapshot.params;
         this.authService.deleteUser(this.currentUrl.id).subscribe(function (userDetails) {
-            _this.flashMessages.show("Successfully updated user", {
+            _this.flashMessages.show("Successfully deleted user", {
                 cssClass: "alert-success",
                 timeout: 5000
             });
