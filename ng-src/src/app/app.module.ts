@@ -24,6 +24,7 @@ import { ProfileComponent } from "./components/profile/profile.component";
 import { AdminComponent } from "./components/admin/admin.component";
 import { SubscriberComponent } from "./components/subscriber/subscriber.component";
 import { UpdateComponent } from "./components/profile/update/update.component";
+import { UsersComponent } from "./components/admin/users/users.component";
 
 // ROUTES
 const appRoutes: Routes = [
@@ -47,6 +48,11 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard, AdminGuard]
   },
   {
+    path: "admin/users",
+    component: UsersComponent,
+    canActivate: [AuthGuard, AdminGuard]
+  },
+  {
     path: "subscriber",
     component: SubscriberComponent,
     canActivate: [AuthGuard]
@@ -64,7 +70,8 @@ const appRoutes: Routes = [
     ProfileComponent,
     AdminComponent,
     SubscriberComponent,
-    UpdateComponent
+    UpdateComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,

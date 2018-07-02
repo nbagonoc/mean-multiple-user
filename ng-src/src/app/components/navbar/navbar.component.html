@@ -21,7 +21,10 @@
     </ul>
     <ul *ngIf="authService.isLoggedIn()" class="navbar-nav ml-auto">
       <li *ngIf="authService.currentUser.role=='admin'" class="nav-item">
-        <a [routerLinkActive]="['active']" class="nav-link text-capitalize" href="#" routerLink="/admin">Admin</a>
+        <a [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-link text-capitalize" href="#" routerLink="/admin">Admin</a>
+      </li>
+      <li *ngIf="authService.currentUser.role=='admin'" class="nav-item">
+        <a [routerLinkActive]="['active']" class="nav-link text-capitalize" href="#" routerLink="/admin/users">Users</a>
       </li>
       <li class="nav-item">
         <a [routerLinkActive]="['active']" class="nav-link text-capitalize" href="#" routerLink="/subscriber">Subscriber</a>

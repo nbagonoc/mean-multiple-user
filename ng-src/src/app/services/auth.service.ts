@@ -56,6 +56,18 @@ export class AuthService {
 
   // CRUD USER
   // view user
+  viewUsers() {
+    this.loadToken();
+    let headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      Authorization: this.authToken
+    });
+    // return this.http.get("http://localhost:5000/users/viewUsers", {
+    return this.http.get("users/viewUsers", {
+      headers
+    });
+  }
+  // view user
   viewUser() {
     this.loadToken();
     let headers = new HttpHeaders({

@@ -96,6 +96,21 @@ router.post("/authenticate", (req, res, next) => {
   }
 });
 
+// GET | view users
+router.get(
+  "/viewUsers",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    User.find({ role: "subscriber" }, (err, users) => {
+      if (err) {
+        res.json({ success: false, message: "Users not found" });
+      } else {
+        res.json({ success: true, users });
+      }
+    });
+  }
+);
+
 // GET | view user
 router.get(
   "/viewUser",
