@@ -34,10 +34,10 @@ mongoose
   .catch(err => console.log(err));
 
 // ROUTES
-const users = require("./routes/users");
+const users = require("./routes/api/users");
 
 // USE ROUTES
-app.use("/users", users);
+app.use("/api/users", users);
 
 // STATIC FOLDER
 app.use(express.static(path.join(__dirname, "public")));

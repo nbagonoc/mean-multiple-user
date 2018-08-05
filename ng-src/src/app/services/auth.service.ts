@@ -16,8 +16,8 @@ export class AuthService {
   registerUser(user) {
     let headers = new HttpHeaders();
     headers.append("Content-type", "applications/json");
-    // return this.http.post("http://localhost:5000/users/register", user, {
-    return this.http.post("users/register", user, {
+    return this.http.post("http://localhost:5000/api/users/register", user, {
+      // return this.http.post("api/users/register", user, {
       headers
     });
   }
@@ -26,10 +26,14 @@ export class AuthService {
   authenticateUser(user) {
     let headers = new HttpHeaders();
     headers.append("Content-type", "applications/json");
-    // return this.http.post("http://localhost:5000/users/authenticate", user, {
-    return this.http.post("users/authenticate", user, {
-      headers
-    });
+    return this.http.post(
+      "http://localhost:5000/api/users/authenticate",
+      user,
+      {
+        // return this.http.post("api/users/authenticate", user, {
+        headers
+      }
+    );
   }
 
   // store token and user data
@@ -62,8 +66,8 @@ export class AuthService {
       "Content-Type": "application/json",
       Authorization: this.authToken
     });
-    // return this.http.get("http://localhost:5000/users/viewUsers", {
-    return this.http.get("users/viewUsers", {
+    return this.http.get("http://localhost:5000/api/users/viewUsers", {
+      // return this.http.get("api/users/viewUsers", {
       headers
     });
   }
@@ -74,8 +78,8 @@ export class AuthService {
       "Content-Type": "application/json",
       Authorization: this.authToken
     });
-    // return this.http.get("http://localhost:5000/users/getUser/" + id, {
-    return this.http.get("users/getUser/" + id, {
+    return this.http.get("http://localhost:5000/api/users/getUser/" + id, {
+      // return this.http.get("api/users/getUser/" + id, {
       headers
     });
   }
@@ -86,8 +90,8 @@ export class AuthService {
       "Content-Type": "application/json",
       Authorization: this.authToken
     });
-    // return this.http.get("http://localhost:5000/users/viewUser", {
-    return this.http.get("users/viewUser", {
+    return this.http.get("http://localhost:5000/api/users/viewUser", {
+      // return this.http.get("api/users/viewUser", {
       headers
     });
   }
@@ -98,8 +102,8 @@ export class AuthService {
       "Content-Type": "application/json",
       Authorization: this.authToken
     });
-    // return this.http.put("http://localhost:5000/users/updateUser/", user, {
-    return this.http.put("users/updateUser/", user, {
+    return this.http.put("http://localhost:5000/api/users/updateUser/", user, {
+      // return this.http.put("api/users/updateUser/", user, {
       headers
     });
   }
@@ -110,10 +114,13 @@ export class AuthService {
       "Content-Type": "application/json",
       Authorization: this.authToken
     });
-    // return this.http.delete("http://localhost:5000/users/deleteUser/" + id, {
-    return this.http.delete("users/deleteUser/" + id, {
-      headers
-    });
+    return this.http.delete(
+      "http://localhost:5000/api/users/deleteUser/" + id,
+      {
+        // return this.http.delete("api/users/deleteUser/" + id, {
+        headers
+      }
+    );
   }
 
   // signout

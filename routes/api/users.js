@@ -3,11 +3,11 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const key = require("../config/dbSecretKeys");
+const key = require("../../config/dbSecretKeys");
 const passport = require("passport");
 
 // bring in user model
-require("../models/User");
+require("../../models/User");
 const User = mongoose.model("users");
 
 // POST | register process
