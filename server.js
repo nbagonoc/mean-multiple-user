@@ -34,9 +34,11 @@ mongoose
   .catch(err => console.log(err));
 
 // ROUTES
+const auth = require("./routes/api/auth");
 const users = require("./routes/api/users");
 
 // USE ROUTES
+app.use("/api/auth", auth);
 app.use("/api/users", users);
 
 // STATIC FOLDER

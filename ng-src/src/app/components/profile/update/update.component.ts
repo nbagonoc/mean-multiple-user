@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { AuthService } from "../../../services/auth.service";
+import { UsersService } from "../../../services/users.service";
 import { FlashMessagesService } from "angular2-flash-messages";
 
 @Component({
@@ -12,13 +12,13 @@ export class UpdateComponent implements OnInit {
   user;
 
   constructor(
-    private authService: AuthService,
+    private usersService: UsersService,
     private router: Router,
     private flashMessages: FlashMessagesService
   ) {}
 
   onSubmit(f) {
-    this.authService.updateUser(this.user).subscribe(data => {
+    this.usersService.updateUser(this.user).subscribe(data => {
       this.flashMessages.show("Successfully updated profile", {
         cssClass: "alert-success",
         timeout: 5000
@@ -28,7 +28,7 @@ export class UpdateComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.authService.viewUser().subscribe(userDetails => {
+    this.usersService.viewUser().subscribe(userDetails => {
       this.user = (userDetails as any).user;
     });
   }

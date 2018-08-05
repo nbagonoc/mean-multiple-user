@@ -8,6 +8,7 @@ import { FlashMessagesModule } from "angular2-flash-messages";
 // SERVICES
 import { ValidateService } from "./services/validate.service";
 import { AuthService } from "./services/auth.service";
+import { UsersService } from "./services/users.service";
 
 // GUARDS
 import { AuthGuard } from "./guards/auth.guard";
@@ -97,7 +98,13 @@ const appRoutes: Routes = [
     FormsModule,
     FlashMessagesModule.forRoot()
   ],
-  providers: [ValidateService, AuthService, AuthGuard, AdminGuard],
+  providers: [
+    ValidateService,
+    AuthService,
+    UsersService,
+    AuthGuard,
+    AdminGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

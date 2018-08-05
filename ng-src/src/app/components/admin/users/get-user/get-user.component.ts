@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { AuthService } from "../../../../services/auth.service";
+import { UsersService } from "../../../../services/users.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { FlashMessagesService } from "angular2-flash-messages";
 
@@ -13,7 +13,7 @@ export class GetUserComponent implements OnInit {
   currentUrl;
 
   constructor(
-    private authService: AuthService,
+    private usersService: UsersService,
     private activedRoute: ActivatedRoute,
     private router: Router,
     private flashMessages: FlashMessagesService
@@ -21,7 +21,7 @@ export class GetUserComponent implements OnInit {
 
   onDelete() {
     this.currentUrl = this.activedRoute.snapshot.params;
-    this.authService.deleteUser(this.currentUrl.id).subscribe(userDetails => {
+    this.usersService.deleteUser(this.currentUrl.id).subscribe(userDetails => {
       this.flashMessages.show("Successfully deleted user", {
         cssClass: "alert-success",
         timeout: 5000
@@ -32,7 +32,7 @@ export class GetUserComponent implements OnInit {
 
   ngOnInit() {
     this.currentUrl = this.activedRoute.snapshot.params;
-    this.authService.getUser(this.currentUrl.id).subscribe(userDetails => {
+    this.usersService.getUser(this.currentUrl.id).subscribe(userDetails => {
       this.user = (userDetails as any).user;
     });
   }

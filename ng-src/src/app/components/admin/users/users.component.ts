@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { AuthService } from "../../../services/auth.service";
+import { UsersService } from "../../../services/users.service";
 
 @Component({
   selector: "app-users",
@@ -9,10 +9,10 @@ import { AuthService } from "../../../services/auth.service";
 export class UsersComponent implements OnInit {
   users: object;
 
-  constructor(private authService: AuthService) {}
+  constructor(private usersService: UsersService) {}
 
   ngOnInit() {
-    this.authService.viewUsers().subscribe(userDetails => {
+    this.usersService.viewUsers().subscribe(userDetails => {
       this.users = (userDetails as any).users;
     });
   }

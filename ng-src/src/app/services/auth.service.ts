@@ -12,28 +12,26 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  // Signup
+  // POST | api/users/register
+  // register user
   registerUser(user) {
     let headers = new HttpHeaders();
     headers.append("Content-type", "applications/json");
-    return this.http.post("http://localhost:5000/api/users/register", user, {
-      // return this.http.post("api/users/register", user, {
+    return this.http.post("http://localhost:5000/api/auth/register", user, {
+      // return this.http.post("api/auth/register", user, {
       headers
     });
   }
 
-  // Check user data
+  // POST | api/users/login
+  // authenticate/login user
   authenticateUser(user) {
     let headers = new HttpHeaders();
     headers.append("Content-type", "applications/json");
-    return this.http.post(
-      "http://localhost:5000/api/users/authenticate",
-      user,
-      {
-        // return this.http.post("api/users/authenticate", user, {
-        headers
-      }
-    );
+    return this.http.post("http://localhost:5000/api/auth/login", user, {
+      // return this.http.post("api/auth/login", user, {
+      headers
+    });
   }
 
   // store token and user data
@@ -52,75 +50,11 @@ export class AuthService {
     return tokenNotExpired("id_token");
   }
 
+  // use to check users name, id, and role; To hide show elements, and setup guard/middleware
   get currentUser() {
     this.loadToken();
     if (!this.authToken) return null;
     return new JwtHelper().decodeToken(this.authToken);
-  }
-
-  // CRUD USER
-  // view users
-  viewUsers() {
-    this.loadToken();
-    let headers = new HttpHeaders({
-      "Content-Type": "application/json",
-      Authorization: this.authToken
-    });
-    return this.http.get("http://localhost:5000/api/users/viewUsers", {
-      // return this.http.get("api/users/viewUsers", {
-      headers
-    });
-  }
-  // get a user
-  getUser(id) {
-    this.loadToken();
-    let headers = new HttpHeaders({
-      "Content-Type": "application/json",
-      Authorization: this.authToken
-    });
-    return this.http.get("http://localhost:5000/api/users/getUser/" + id, {
-      // return this.http.get("api/users/getUser/" + id, {
-      headers
-    });
-  }
-  // view current user for profile
-  viewUser() {
-    this.loadToken();
-    let headers = new HttpHeaders({
-      "Content-Type": "application/json",
-      Authorization: this.authToken
-    });
-    return this.http.get("http://localhost:5000/api/users/viewUser", {
-      // return this.http.get("api/users/viewUser", {
-      headers
-    });
-  }
-  // update user
-  updateUser(user) {
-    this.loadToken();
-    let headers = new HttpHeaders({
-      "Content-Type": "application/json",
-      Authorization: this.authToken
-    });
-    return this.http.put("http://localhost:5000/api/users/updateUser/", user, {
-      // return this.http.put("api/users/updateUser/", user, {
-      headers
-    });
-  }
-
-  deleteUser(id) {
-    this.loadToken();
-    let headers = new HttpHeaders({
-      "Content-Type": "application/json",
-      Authorization: this.authToken
-    });
-    return this.http.delete(
-      "http://localhost:5000/api/users/deleteUser/" + id,
-      {
-        // return this.http.delete("api/users/deleteUser/" + id, {
-        headers
-      }
-    );
   }
 
   // signout

@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { AuthService } from "../../../../services/auth.service";
+import { UsersService } from "../../../../services/users.service";
 import { FlashMessagesService } from "angular2-flash-messages";
 
 @Component({
@@ -13,14 +13,14 @@ export class UpdateUserComponent implements OnInit {
   currentUrl;
 
   constructor(
-    private authService: AuthService,
+    private usersService: UsersService,
     private activedRoute: ActivatedRoute,
     private router: Router,
     private flashMessages: FlashMessagesService
   ) {}
 
   onSubmit(f) {
-    this.authService.updateUser(this.user).subscribe(data => {
+    this.usersService.updateUser(this.user).subscribe(data => {
       this.flashMessages.show("Successfully updated user", {
         cssClass: "alert-success",
         timeout: 5000
@@ -31,7 +31,7 @@ export class UpdateUserComponent implements OnInit {
 
   ngOnInit() {
     this.currentUrl = this.activedRoute.snapshot.params;
-    this.authService.getUser(this.currentUrl.id).subscribe(userDetails => {
+    this.usersService.getUser(this.currentUrl.id).subscribe(userDetails => {
       this.user = (userDetails as any).user;
     });
   }
