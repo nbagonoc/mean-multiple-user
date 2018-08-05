@@ -68,10 +68,14 @@ export class UsersService {
       "Content-Type": "application/json",
       Authorization: this.authToken
     });
-    return this.http.put("http://localhost:5000/api/users/update/", user, {
-      // return this.http.put("api/users/update/", user, {
-      headers
-    });
+    return this.http.put(
+      "http://localhost:5000/api/users/update/" + user.id,
+      user,
+      {
+        // return this.http.put("api/users/update/", user, {
+        headers
+      }
+    );
   }
 
   // DELETE | api/users/delete/:id

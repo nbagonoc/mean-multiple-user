@@ -13,7 +13,7 @@
           <p class="mb-0">Email: {{user.email}}</p>
           <p class="mb-0">Role: {{user.role}}</p>
           <hr>
-          <a href="#" routerLink="/profile/update" class="btn btn-outline-success btn-sm">Edit</a>
+          <a href="#" [routerLink]="['/profile/update/', user._id]" class="btn btn-outline-success btn-sm">Edit</a>
         </div>
       </div>
     </div>

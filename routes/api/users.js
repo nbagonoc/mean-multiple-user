@@ -58,7 +58,7 @@ router.get(
 // PUT | api/users/update
 // update user
 router.put(
-  "/update",
+  "/update/:id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     if (!req.body.name) {
