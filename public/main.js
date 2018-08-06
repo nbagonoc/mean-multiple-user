@@ -100,22 +100,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _services_validate_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./services/validate.service */ "./src/app/services/validate.service.ts");
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./services/auth.service */ "./src/app/services/auth.service.ts");
-/* harmony import */ var _guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./guards/auth.guard */ "./src/app/guards/auth.guard.ts");
-/* harmony import */ var _guards_admin_guard__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./guards/admin.guard */ "./src/app/guards/admin.guard.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/navbar/navbar.component */ "./src/app/components/navbar/navbar.component.ts");
-/* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/login/login.component */ "./src/app/components/login/login.component.ts");
-/* harmony import */ var _components_register_register_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/register/register.component */ "./src/app/components/register/register.component.ts");
-/* harmony import */ var _components_home_home_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/home/home.component */ "./src/app/components/home/home.component.ts");
-/* harmony import */ var _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/dashboard/dashboard.component */ "./src/app/components/dashboard/dashboard.component.ts");
-/* harmony import */ var _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/profile/profile.component */ "./src/app/components/profile/profile.component.ts");
-/* harmony import */ var _components_admin_admin_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/admin/admin.component */ "./src/app/components/admin/admin.component.ts");
-/* harmony import */ var _components_subscriber_subscriber_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/subscriber/subscriber.component */ "./src/app/components/subscriber/subscriber.component.ts");
-/* harmony import */ var _components_profile_update_update_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/profile/update/update.component */ "./src/app/components/profile/update/update.component.ts");
-/* harmony import */ var _components_admin_users_users_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/admin/users/users.component */ "./src/app/components/admin/users/users.component.ts");
-/* harmony import */ var _components_admin_users_get_user_get_user_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/admin/users/get-user/get-user.component */ "./src/app/components/admin/users/get-user/get-user.component.ts");
-/* harmony import */ var _components_admin_users_update_user_update_user_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/admin/users/update-user/update-user.component */ "./src/app/components/admin/users/update-user/update-user.component.ts");
-/* harmony import */ var _components_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/sidebar/sidebar.component */ "./src/app/components/sidebar/sidebar.component.ts");
+/* harmony import */ var _services_users_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./services/users.service */ "./src/app/services/users.service.ts");
+/* harmony import */ var _guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./guards/auth.guard */ "./src/app/guards/auth.guard.ts");
+/* harmony import */ var _guards_admin_guard__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./guards/admin.guard */ "./src/app/guards/admin.guard.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/navbar/navbar.component */ "./src/app/components/navbar/navbar.component.ts");
+/* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/login/login.component */ "./src/app/components/login/login.component.ts");
+/* harmony import */ var _components_register_register_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/register/register.component */ "./src/app/components/register/register.component.ts");
+/* harmony import */ var _components_home_home_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/home/home.component */ "./src/app/components/home/home.component.ts");
+/* harmony import */ var _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/dashboard/dashboard.component */ "./src/app/components/dashboard/dashboard.component.ts");
+/* harmony import */ var _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/profile/profile.component */ "./src/app/components/profile/profile.component.ts");
+/* harmony import */ var _components_admin_admin_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/admin/admin.component */ "./src/app/components/admin/admin.component.ts");
+/* harmony import */ var _components_subscriber_subscriber_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/subscriber/subscriber.component */ "./src/app/components/subscriber/subscriber.component.ts");
+/* harmony import */ var _components_profile_update_update_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/profile/update/update.component */ "./src/app/components/profile/update/update.component.ts");
+/* harmony import */ var _components_admin_users_users_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/admin/users/users.component */ "./src/app/components/admin/users/users.component.ts");
+/* harmony import */ var _components_admin_users_get_user_get_user_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/admin/users/get-user/get-user.component */ "./src/app/components/admin/users/get-user/get-user.component.ts");
+/* harmony import */ var _components_admin_users_update_user_update_user_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/admin/users/update-user/update-user.component */ "./src/app/components/admin/users/update-user/update-user.component.ts");
+/* harmony import */ var _components_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/sidebar/sidebar.component */ "./src/app/components/sidebar/sidebar.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -129,6 +130,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 // SERVICES
+
 
 
 // GUARDS
@@ -151,46 +153,46 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 // ROUTES
 var appRoutes = [
-    { path: "", component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_14__["HomeComponent"] },
-    { path: "register", component: _components_register_register_component__WEBPACK_IMPORTED_MODULE_13__["RegisterComponent"] },
-    { path: "login", component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_12__["LoginComponent"] },
+    { path: "", component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_15__["HomeComponent"] },
+    { path: "register", component: _components_register_register_component__WEBPACK_IMPORTED_MODULE_14__["RegisterComponent"] },
+    { path: "login", component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_13__["LoginComponent"] },
     {
         path: "dashboard",
-        component: _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_15__["DashboardComponent"],
-        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]]
+        component: _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_16__["DashboardComponent"],
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]]
     },
-    { path: "profile", component: _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_16__["ProfileComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]] },
+    { path: "profile", component: _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_17__["ProfileComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]] },
     {
-        path: "profile/update",
-        component: _components_profile_update_update_component__WEBPACK_IMPORTED_MODULE_19__["UpdateComponent"],
-        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]]
+        path: "profile/update/:id",
+        component: _components_profile_update_update_component__WEBPACK_IMPORTED_MODULE_20__["UpdateComponent"],
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]]
     },
     {
         path: "admin",
-        component: _components_admin_admin_component__WEBPACK_IMPORTED_MODULE_17__["AdminComponent"],
-        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"], _guards_admin_guard__WEBPACK_IMPORTED_MODULE_9__["AdminGuard"]]
+        component: _components_admin_admin_component__WEBPACK_IMPORTED_MODULE_18__["AdminComponent"],
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"], _guards_admin_guard__WEBPACK_IMPORTED_MODULE_10__["AdminGuard"]]
     },
     {
         path: "admin/users",
-        component: _components_admin_users_users_component__WEBPACK_IMPORTED_MODULE_20__["UsersComponent"],
-        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"], _guards_admin_guard__WEBPACK_IMPORTED_MODULE_9__["AdminGuard"]]
+        component: _components_admin_users_users_component__WEBPACK_IMPORTED_MODULE_21__["UsersComponent"],
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"], _guards_admin_guard__WEBPACK_IMPORTED_MODULE_10__["AdminGuard"]]
     },
     {
         path: "admin/users/get/:id",
-        component: _components_admin_users_get_user_get_user_component__WEBPACK_IMPORTED_MODULE_21__["GetUserComponent"],
-        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"], _guards_admin_guard__WEBPACK_IMPORTED_MODULE_9__["AdminGuard"]]
+        component: _components_admin_users_get_user_get_user_component__WEBPACK_IMPORTED_MODULE_22__["GetUserComponent"],
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"], _guards_admin_guard__WEBPACK_IMPORTED_MODULE_10__["AdminGuard"]]
     },
     {
         path: "admin/users/update/:id",
-        component: _components_admin_users_update_user_update_user_component__WEBPACK_IMPORTED_MODULE_22__["UpdateUserComponent"],
-        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"], _guards_admin_guard__WEBPACK_IMPORTED_MODULE_9__["AdminGuard"]]
+        component: _components_admin_users_update_user_update_user_component__WEBPACK_IMPORTED_MODULE_23__["UpdateUserComponent"],
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"], _guards_admin_guard__WEBPACK_IMPORTED_MODULE_10__["AdminGuard"]]
     },
     {
         path: "subscriber",
-        component: _components_subscriber_subscriber_component__WEBPACK_IMPORTED_MODULE_18__["SubscriberComponent"],
-        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]]
+        component: _components_subscriber_subscriber_component__WEBPACK_IMPORTED_MODULE_19__["SubscriberComponent"],
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]]
     },
-    { path: "**", component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_14__["HomeComponent"] }
+    { path: "**", component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_15__["HomeComponent"] }
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -198,20 +200,20 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"],
-                _components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_11__["NavbarComponent"],
-                _components_login_login_component__WEBPACK_IMPORTED_MODULE_12__["LoginComponent"],
-                _components_register_register_component__WEBPACK_IMPORTED_MODULE_13__["RegisterComponent"],
-                _components_home_home_component__WEBPACK_IMPORTED_MODULE_14__["HomeComponent"],
-                _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_15__["DashboardComponent"],
-                _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_16__["ProfileComponent"],
-                _components_admin_admin_component__WEBPACK_IMPORTED_MODULE_17__["AdminComponent"],
-                _components_subscriber_subscriber_component__WEBPACK_IMPORTED_MODULE_18__["SubscriberComponent"],
-                _components_profile_update_update_component__WEBPACK_IMPORTED_MODULE_19__["UpdateComponent"],
-                _components_admin_users_users_component__WEBPACK_IMPORTED_MODULE_20__["UsersComponent"],
-                _components_admin_users_get_user_get_user_component__WEBPACK_IMPORTED_MODULE_21__["GetUserComponent"],
-                _components_admin_users_update_user_update_user_component__WEBPACK_IMPORTED_MODULE_22__["UpdateUserComponent"],
-                _components_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_23__["SidebarComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"],
+                _components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_12__["NavbarComponent"],
+                _components_login_login_component__WEBPACK_IMPORTED_MODULE_13__["LoginComponent"],
+                _components_register_register_component__WEBPACK_IMPORTED_MODULE_14__["RegisterComponent"],
+                _components_home_home_component__WEBPACK_IMPORTED_MODULE_15__["HomeComponent"],
+                _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_16__["DashboardComponent"],
+                _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_17__["ProfileComponent"],
+                _components_admin_admin_component__WEBPACK_IMPORTED_MODULE_18__["AdminComponent"],
+                _components_subscriber_subscriber_component__WEBPACK_IMPORTED_MODULE_19__["SubscriberComponent"],
+                _components_profile_update_update_component__WEBPACK_IMPORTED_MODULE_20__["UpdateComponent"],
+                _components_admin_users_users_component__WEBPACK_IMPORTED_MODULE_21__["UsersComponent"],
+                _components_admin_users_get_user_get_user_component__WEBPACK_IMPORTED_MODULE_22__["GetUserComponent"],
+                _components_admin_users_update_user_update_user_component__WEBPACK_IMPORTED_MODULE_23__["UpdateUserComponent"],
+                _components_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_24__["SidebarComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -220,8 +222,14 @@ var AppModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
                 angular2_flash_messages__WEBPACK_IMPORTED_MODULE_5__["FlashMessagesModule"].forRoot()
             ],
-            providers: [_services_validate_service__WEBPACK_IMPORTED_MODULE_6__["ValidateService"], _services_auth_service__WEBPACK_IMPORTED_MODULE_7__["AuthService"], _guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"], _guards_admin_guard__WEBPACK_IMPORTED_MODULE_9__["AdminGuard"]],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"]]
+            providers: [
+                _services_validate_service__WEBPACK_IMPORTED_MODULE_6__["ValidateService"],
+                _services_auth_service__WEBPACK_IMPORTED_MODULE_7__["AuthService"],
+                _services_users_service__WEBPACK_IMPORTED_MODULE_8__["UsersService"],
+                _guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"],
+                _guards_admin_guard__WEBPACK_IMPORTED_MODULE_10__["AdminGuard"]
+            ],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -327,7 +335,7 @@ module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div cla
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetUserComponent", function() { return GetUserComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var _services_users_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../services/users.service */ "./src/app/services/users.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular2-flash-messages */ "./node_modules/angular2-flash-messages/module/index.js");
 /* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__);
@@ -345,8 +353,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var GetUserComponent = /** @class */ (function () {
-    function GetUserComponent(authService, activedRoute, router, flashMessages) {
-        this.authService = authService;
+    function GetUserComponent(usersService, activedRoute, router, flashMessages) {
+        this.usersService = usersService;
         this.activedRoute = activedRoute;
         this.router = router;
         this.flashMessages = flashMessages;
@@ -354,7 +362,7 @@ var GetUserComponent = /** @class */ (function () {
     GetUserComponent.prototype.onDelete = function () {
         var _this = this;
         this.currentUrl = this.activedRoute.snapshot.params;
-        this.authService.deleteUser(this.currentUrl.id).subscribe(function (userDetails) {
+        this.usersService.deleteUser(this.currentUrl.id).subscribe(function (userDetails) {
             _this.flashMessages.show("Successfully deleted user", {
                 cssClass: "alert-success",
                 timeout: 5000
@@ -365,7 +373,7 @@ var GetUserComponent = /** @class */ (function () {
     GetUserComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.currentUrl = this.activedRoute.snapshot.params;
-        this.authService.getUser(this.currentUrl.id).subscribe(function (userDetails) {
+        this.usersService.getUser(this.currentUrl.id).subscribe(function (userDetails) {
             _this.user = userDetails.user;
         });
     };
@@ -375,7 +383,7 @@ var GetUserComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./get-user.component.html */ "./src/app/components/admin/users/get-user/get-user.component.html"),
             styles: [__webpack_require__(/*! ./get-user.component.css */ "./src/app/components/admin/users/get-user/get-user.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"],
+        __metadata("design:paramtypes", [_services_users_service__WEBPACK_IMPORTED_MODULE_1__["UsersService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
             angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__["FlashMessagesService"]])
@@ -421,7 +429,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UpdateUserComponent", function() { return UpdateUserComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var _services_users_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../services/users.service */ "./src/app/services/users.service.ts");
 /* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular2-flash-messages */ "./node_modules/angular2-flash-messages/module/index.js");
 /* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
@@ -438,15 +446,15 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var UpdateUserComponent = /** @class */ (function () {
-    function UpdateUserComponent(authService, activedRoute, router, flashMessages) {
-        this.authService = authService;
+    function UpdateUserComponent(usersService, activedRoute, router, flashMessages) {
+        this.usersService = usersService;
         this.activedRoute = activedRoute;
         this.router = router;
         this.flashMessages = flashMessages;
     }
     UpdateUserComponent.prototype.onSubmit = function (f) {
         var _this = this;
-        this.authService.updateUser(this.user).subscribe(function (data) {
+        this.usersService.updateUser(this.user).subscribe(function (data) {
             _this.flashMessages.show("Successfully updated user", {
                 cssClass: "alert-success",
                 timeout: 5000
@@ -457,7 +465,7 @@ var UpdateUserComponent = /** @class */ (function () {
     UpdateUserComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.currentUrl = this.activedRoute.snapshot.params;
-        this.authService.getUser(this.currentUrl.id).subscribe(function (userDetails) {
+        this.usersService.getUser(this.currentUrl.id).subscribe(function (userDetails) {
             _this.user = userDetails.user;
         });
     };
@@ -467,7 +475,7 @@ var UpdateUserComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./update-user.component.html */ "./src/app/components/admin/users/update-user/update-user.component.html"),
             styles: [__webpack_require__(/*! ./update-user.component.css */ "./src/app/components/admin/users/update-user/update-user.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"],
+        __metadata("design:paramtypes", [_services_users_service__WEBPACK_IMPORTED_MODULE_2__["UsersService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
             angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__["FlashMessagesService"]])
@@ -512,7 +520,7 @@ module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div cla
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsersComponent", function() { return UsersComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var _services_users_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../services/users.service */ "./src/app/services/users.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -525,12 +533,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var UsersComponent = /** @class */ (function () {
-    function UsersComponent(authService) {
-        this.authService = authService;
+    function UsersComponent(usersService) {
+        this.usersService = usersService;
     }
     UsersComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.authService.viewUsers().subscribe(function (userDetails) {
+        this.usersService.viewUsers().subscribe(function (userDetails) {
             _this.users = userDetails.users;
         });
     };
@@ -540,7 +548,7 @@ var UsersComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./users.component.html */ "./src/app/components/admin/users/users.component.html"),
             styles: [__webpack_require__(/*! ./users.component.css */ "./src/app/components/admin/users/users.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]])
+        __metadata("design:paramtypes", [_services_users_service__WEBPACK_IMPORTED_MODULE_1__["UsersService"]])
     ], UsersComponent);
     return UsersComponent;
 }());
@@ -879,7 +887,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-4 mb-3\">\n      <app-sidebar></app-sidebar>\n    </div>\n    <div class=\"col-md-8\">\n      <div class=\"card\" *ngIf=\"user\">\n        <div class=\"card-header text-capitalize\">\n          Your Profile\n        </div>\n        <div class=\"card-body\">\n          <h3 class=\"text-capitalize\">{{user.name}}</h3>\n          <p class=\"mb-0\">Email: {{user.email}}</p>\n          <p class=\"mb-0\">Role: {{user.role}}</p>\n          <!-- another method is below by getting the values via the payload form the token -->\n          <!-- <p>Role: {{authService.currentUser.role}}</p> -->\n          <hr>\n          <a href=\"#\" routerLink=\"/profile/update\" class=\"btn btn-outline-success btn-sm\">Edit</a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-4 mb-3\">\n      <app-sidebar></app-sidebar>\n    </div>\n    <div class=\"col-md-8\">\n      <div class=\"card\" *ngIf=\"user\">\n        <div class=\"card-header text-capitalize\">\n          Your Profile\n        </div>\n        <div class=\"card-body\">\n          <h3 class=\"text-capitalize\">{{user.name}}</h3>\n          <p class=\"mb-0\">Email: {{user.email}}</p>\n          <p class=\"mb-0\">Role: {{user.role}}</p>\n          <hr>\n          <a href=\"#\" [routerLink]=\"['/profile/update/', user._id]\" class=\"btn btn-outline-success btn-sm\">Edit</a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -894,7 +902,7 @@ module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div cla
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileComponent", function() { return ProfileComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var _services_users_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/users.service */ "./src/app/services/users.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -907,12 +915,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var ProfileComponent = /** @class */ (function () {
-    function ProfileComponent(authService) {
-        this.authService = authService;
+    function ProfileComponent(usersService) {
+        this.usersService = usersService;
     }
     ProfileComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.authService.viewUser().subscribe(function (userDetails) {
+        this.usersService.viewUser().subscribe(function (userDetails) {
             _this.user = userDetails.user;
         });
     };
@@ -922,7 +930,7 @@ var ProfileComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./profile.component.html */ "./src/app/components/profile/profile.component.html"),
             styles: [__webpack_require__(/*! ./profile.component.css */ "./src/app/components/profile/profile.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]])
+        __metadata("design:paramtypes", [_services_users_service__WEBPACK_IMPORTED_MODULE_1__["UsersService"]])
     ], ProfileComponent);
     return ProfileComponent;
 }());
@@ -965,7 +973,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UpdateComponent", function() { return UpdateComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var _services_users_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/users.service */ "./src/app/services/users.service.ts");
 /* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular2-flash-messages */ "./node_modules/angular2-flash-messages/module/index.js");
 /* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
@@ -982,14 +990,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var UpdateComponent = /** @class */ (function () {
-    function UpdateComponent(authService, router, flashMessages) {
-        this.authService = authService;
+    function UpdateComponent(usersService, router, flashMessages) {
+        this.usersService = usersService;
         this.router = router;
         this.flashMessages = flashMessages;
     }
     UpdateComponent.prototype.onSubmit = function (f) {
         var _this = this;
-        this.authService.updateUser(this.user).subscribe(function (data) {
+        this.usersService.updateUser(this.user).subscribe(function (data) {
             _this.flashMessages.show("Successfully updated profile", {
                 cssClass: "alert-success",
                 timeout: 5000
@@ -999,7 +1007,7 @@ var UpdateComponent = /** @class */ (function () {
     };
     UpdateComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.authService.viewUser().subscribe(function (userDetails) {
+        this.usersService.viewUser().subscribe(function (userDetails) {
             _this.user = userDetails.user;
         });
     };
@@ -1009,7 +1017,7 @@ var UpdateComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./update.component.html */ "./src/app/components/profile/update/update.component.html"),
             styles: [__webpack_require__(/*! ./update.component.css */ "./src/app/components/profile/update/update.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"],
+        __metadata("design:paramtypes", [_services_users_service__WEBPACK_IMPORTED_MODULE_2__["UsersService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
             angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__["FlashMessagesService"]])
     ], UpdateComponent);
@@ -1432,21 +1440,23 @@ var AuthService = /** @class */ (function () {
     function AuthService(http) {
         this.http = http;
     }
-    // Signup
+    // POST | api/users/register
+    // register user
     AuthService.prototype.registerUser = function (user) {
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
         headers.append("Content-type", "applications/json");
-        // return this.http.post("http://localhost:5000/users/register", user, {
-        return this.http.post("users/register", user, {
+        // return this.http.post("http://localhost:5000/api/auth/register", user, {
+        return this.http.post("api/auth/register", user, {
             headers: headers
         });
     };
-    // Check user data
+    // POST | api/users/login
+    // authenticate/login user
     AuthService.prototype.authenticateUser = function (user) {
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
         headers.append("Content-type", "applications/json");
-        // return this.http.post("http://localhost:5000/users/authenticate", user, {
-        return this.http.post("users/authenticate", user, {
+        // return this.http.post("http://localhost:5000/api/auth/login", user, {
+        return this.http.post("api/auth/login", user, {
             headers: headers
         });
     };
@@ -1464,6 +1474,7 @@ var AuthService = /** @class */ (function () {
         return Object(angular2_jwt__WEBPACK_IMPORTED_MODULE_3__["tokenNotExpired"])("id_token");
     };
     Object.defineProperty(AuthService.prototype, "currentUser", {
+        // use to check users name, id, and role; To hide show elements, and setup guard/middleware
         get: function () {
             this.loadToken();
             if (!this.authToken)
@@ -1473,66 +1484,6 @@ var AuthService = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    // CRUD USER
-    // view users
-    AuthService.prototype.viewUsers = function () {
-        this.loadToken();
-        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
-            "Content-Type": "application/json",
-            Authorization: this.authToken
-        });
-        // return this.http.get("http://localhost:5000/users/viewUsers", {
-        return this.http.get("users/viewUsers", {
-            headers: headers
-        });
-    };
-    // get a user
-    AuthService.prototype.getUser = function (id) {
-        this.loadToken();
-        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
-            "Content-Type": "application/json",
-            Authorization: this.authToken
-        });
-        // return this.http.get("http://localhost:5000/users/getUser/" + id, {
-        return this.http.get("users/getUser/" + id, {
-            headers: headers
-        });
-    };
-    // view current user for profile
-    AuthService.prototype.viewUser = function () {
-        this.loadToken();
-        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
-            "Content-Type": "application/json",
-            Authorization: this.authToken
-        });
-        // return this.http.get("http://localhost:5000/users/viewUser", {
-        return this.http.get("users/viewUser", {
-            headers: headers
-        });
-    };
-    // update user
-    AuthService.prototype.updateUser = function (user) {
-        this.loadToken();
-        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
-            "Content-Type": "application/json",
-            Authorization: this.authToken
-        });
-        // return this.http.put("http://localhost:5000/users/updateUser/", user, {
-        return this.http.put("users/updateUser/", user, {
-            headers: headers
-        });
-    };
-    AuthService.prototype.deleteUser = function (id) {
-        this.loadToken();
-        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
-            "Content-Type": "application/json",
-            Authorization: this.authToken
-        });
-        // return this.http.delete("http://localhost:5000/users/deleteUser/" + id, {
-        return this.http.delete("users/deleteUser/" + id, {
-            headers: headers
-        });
-    };
     // signout
     AuthService.prototype.logout = function () {
         this.authToken = null;
@@ -1545,6 +1496,118 @@ var AuthService = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
     ], AuthService);
     return AuthService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/users.service.ts":
+/*!*******************************************!*\
+  !*** ./src/app/services/users.service.ts ***!
+  \*******************************************/
+/*! exports provided: UsersService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsersService", function() { return UsersService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs_add_operator_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/add/operator/map */ "./node_modules/rxjs-compat/_esm5/add/operator/map.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var UsersService = /** @class */ (function () {
+    function UsersService(http) {
+        this.http = http;
+    }
+    UsersService.prototype.loadToken = function () {
+        var token = localStorage.getItem("id_token");
+        this.authToken = token;
+    };
+    // CRUD USER
+    // GET | api/users/profile
+    // view current user for profile
+    UsersService.prototype.viewUser = function () {
+        this.loadToken();
+        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
+            "Content-Type": "application/json",
+            Authorization: this.authToken
+        });
+        // return this.http.get("http://localhost:5000/api/users/profile", {
+        return this.http.get("api/users/profile", {
+            headers: headers
+        });
+    };
+    // GET | api/users
+    // view users
+    UsersService.prototype.viewUsers = function () {
+        this.loadToken();
+        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
+            "Content-Type": "application/json",
+            Authorization: this.authToken
+        });
+        // return this.http.get("http://localhost:5000/api/users", {
+        return this.http.get("api/users", {
+            headers: headers
+        });
+    };
+    // GET | api/users/show/:id
+    // get a user
+    UsersService.prototype.getUser = function (id) {
+        this.loadToken();
+        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
+            "Content-Type": "application/json",
+            Authorization: this.authToken
+        });
+        // return this.http.get("http://localhost:5000/api/users/show/" + id, {
+        return this.http.get("api/users/show/" + id, {
+            headers: headers
+        });
+    };
+    // PUT | api/users/update (NEED TO REFACTOR THIS AGAIN)
+    // update user
+    UsersService.prototype.updateUser = function (user) {
+        this.loadToken();
+        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
+            "Content-Type": "application/json",
+            Authorization: this.authToken
+        });
+        // return this.http.put("http://localhost:5000/api/users/update/" + user.id, user, {
+        return this.http.put("api/users/update/" + user.id, user, {
+            headers: headers
+        });
+    };
+    // DELETE | api/users/delete/:id
+    // delete user
+    UsersService.prototype.deleteUser = function (id) {
+        this.loadToken();
+        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
+            "Content-Type": "application/json",
+            Authorization: this.authToken
+        });
+        // return this.http.delete("http://localhost:5000/api/users/delete/" + id, {
+        return this.http.delete("api/users/delete/" + id, {
+            headers: headers
+        });
+    };
+    UsersService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: "root"
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], UsersService);
+    return UsersService;
 }());
 
 
