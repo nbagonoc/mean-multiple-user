@@ -1,11 +1,5 @@
-<ul class="list-group">
-  <li class="list-group-item">
-    <a href="#" class="text-dark" routerLink="/dashboard">Dashboard</a>
-  </li>
-  <li class="list-group-item">
-    <a href="#" class="text-dark" routerLink="/profile">Profile</a>
-  </li>
-  <li *ngIf="authService.currentUser.role=='admin'" class="list-group-item">
-    <a href="#" class="text-dark" routerLink="/admin/users">Users</a>
-  </li>
-</ul>
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action text-dark" routerLink="/dashboard">Dashboard</a>
+  <a href="#" class="list-group-item list-group-item-action text-dark" routerLink="/profile">Profile</a>
+  <a *ngIf="authService.currentUser.role=='admin'" href="#" class="list-group-item list-group-item-action text-dark" routerLink="/admin/users">Users</a>
+</div>

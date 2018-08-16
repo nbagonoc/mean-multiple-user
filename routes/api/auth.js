@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const key = require("../../config/dbSecretKeys");
-const passport = require("passport");
+// const passport = require("passport");
 
 // bring in user model
 require("../../models/User");
@@ -99,12 +99,12 @@ router.post("/login", (req, res, next) => {
 });
 
 // test if the backend is secured
-router.get(
-  "/test",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    res.json({ message: "you are authorized" });
-  }
-);
+// router.get(
+//   "/test",
+//   passport.authenticate("jwt", { session: false }),
+//   (req, res) => {
+//     res.json({ message: "you are authorized" });
+//   }
+// );
 
 module.exports = router;

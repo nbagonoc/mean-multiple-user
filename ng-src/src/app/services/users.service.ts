@@ -68,7 +68,7 @@ export class UsersService {
       "Content-Type": "application/json",
       Authorization: this.authToken
     });
-    // return this.http.put("http://localhost:5000/api/users/update/" + user.id, user, {
+    // return this.http.put("http://localhost:5000/api/users/update/" + user.id,user, {
     return this.http.put("api/users/update/" + user.id, user, {
       headers
     });

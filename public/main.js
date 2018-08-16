@@ -1178,7 +1178,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ul class=\"list-group\">\n  <li class=\"list-group-item\">\n    <a href=\"#\" class=\"text-dark\" routerLink=\"/dashboard\">Dashboard</a>\n  </li>\n  <li class=\"list-group-item\">\n    <a href=\"#\" class=\"text-dark\" routerLink=\"/profile\">Profile</a>\n  </li>\n  <li *ngIf=\"authService.currentUser.role=='admin'\" class=\"list-group-item\">\n    <a href=\"#\" class=\"text-dark\" routerLink=\"/admin/users\">Users</a>\n  </li>\n</ul>"
+module.exports = "<div class=\"list-group\">\n  <a href=\"#\" class=\"list-group-item list-group-item-action text-dark\" routerLink=\"/dashboard\">Dashboard</a>\n  <a href=\"#\" class=\"list-group-item list-group-item-action text-dark\" routerLink=\"/profile\">Profile</a>\n  <a *ngIf=\"authService.currentUser.role=='admin'\" href=\"#\" class=\"list-group-item list-group-item-action text-dark\" routerLink=\"/admin/users\">Users</a>\n</div>"
 
 /***/ }),
 
@@ -1583,7 +1583,7 @@ var UsersService = /** @class */ (function () {
             "Content-Type": "application/json",
             Authorization: this.authToken
         });
-        // return this.http.put("http://localhost:5000/api/users/update/" + user.id, user, {
+        // return this.http.put("http://localhost:5000/api/users/update/" + user.id,user, {
         return this.http.put("api/users/update/" + user.id, user, {
             headers: headers
         });
