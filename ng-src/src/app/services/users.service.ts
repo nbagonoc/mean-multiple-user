@@ -8,6 +8,8 @@ import "rxjs/add/operator/map";
 export class UsersService {
   authToken: any;
   user: any;
+  // url = "http://localhost:5000/api/users";
+  url = "api/users";
 
   constructor(private http: HttpClient) {}
 
@@ -26,8 +28,7 @@ export class UsersService {
       "Content-Type": "application/json",
       Authorization: this.authToken
     });
-    // return this.http.get("http://localhost:5000/api/users/profile", {
-    return this.http.get("api/users/profile", {
+    return this.http.get(this.url + "/profile", {
       headers
     });
   }
@@ -40,8 +41,7 @@ export class UsersService {
       "Content-Type": "application/json",
       Authorization: this.authToken
     });
-    // return this.http.get("http://localhost:5000/api/users", {
-    return this.http.get("api/users", {
+    return this.http.get(this.url, {
       headers
     });
   }
@@ -54,8 +54,7 @@ export class UsersService {
       "Content-Type": "application/json",
       Authorization: this.authToken
     });
-    // return this.http.get("http://localhost:5000/api/users/show/" + id, {
-    return this.http.get("api/users/show/" + id, {
+    return this.http.get(this.url + "/show/" + id, {
       headers
     });
   }
@@ -68,8 +67,7 @@ export class UsersService {
       "Content-Type": "application/json",
       Authorization: this.authToken
     });
-    // return this.http.put("http://localhost:5000/api/users/update/" + user.id,user, {
-    return this.http.put("api/users/update/" + user.id, user, {
+    return this.http.put(this.url + "/update/" + user._id, user, {
       headers
     });
   }
@@ -82,8 +80,7 @@ export class UsersService {
       "Content-Type": "application/json",
       Authorization: this.authToken
     });
-    // return this.http.delete("http://localhost:5000/api/users/delete/" + id, {
-    return this.http.delete("api/users/delete/" + id, {
+    return this.http.delete(this.url + "/delete/" + id, {
       headers
     });
   }

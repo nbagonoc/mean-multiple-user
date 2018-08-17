@@ -1439,14 +1439,15 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var AuthService = /** @class */ (function () {
     function AuthService(http) {
         this.http = http;
+        // url = "http://localhost:5000/api/auth";
+        this.url = "api/auth";
     }
     // POST | api/users/register
     // register user
     AuthService.prototype.registerUser = function (user) {
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
         headers.append("Content-type", "applications/json");
-        // return this.http.post("http://localhost:5000/api/auth/register", user, {
-        return this.http.post("api/auth/register", user, {
+        return this.http.post(this.url + "/register", user, {
             headers: headers
         });
     };
@@ -1455,8 +1456,7 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.authenticateUser = function (user) {
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
         headers.append("Content-type", "applications/json");
-        // return this.http.post("http://localhost:5000/api/auth/login", user, {
-        return this.http.post("api/auth/login", user, {
+        return this.http.post(this.url + "/login", user, {
             headers: headers
         });
     };
@@ -1530,6 +1530,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var UsersService = /** @class */ (function () {
     function UsersService(http) {
         this.http = http;
+        // url = "http://localhost:5000/api/users";
+        this.url = "api/users";
     }
     UsersService.prototype.loadToken = function () {
         var token = localStorage.getItem("id_token");
@@ -1544,8 +1546,7 @@ var UsersService = /** @class */ (function () {
             "Content-Type": "application/json",
             Authorization: this.authToken
         });
-        // return this.http.get("http://localhost:5000/api/users/profile", {
-        return this.http.get("api/users/profile", {
+        return this.http.get(this.url + "/profile", {
             headers: headers
         });
     };
@@ -1557,8 +1558,7 @@ var UsersService = /** @class */ (function () {
             "Content-Type": "application/json",
             Authorization: this.authToken
         });
-        // return this.http.get("http://localhost:5000/api/users", {
-        return this.http.get("api/users", {
+        return this.http.get(this.url, {
             headers: headers
         });
     };
@@ -1570,8 +1570,7 @@ var UsersService = /** @class */ (function () {
             "Content-Type": "application/json",
             Authorization: this.authToken
         });
-        // return this.http.get("http://localhost:5000/api/users/show/" + id, {
-        return this.http.get("api/users/show/" + id, {
+        return this.http.get(this.url + "/show/" + id, {
             headers: headers
         });
     };
@@ -1583,8 +1582,7 @@ var UsersService = /** @class */ (function () {
             "Content-Type": "application/json",
             Authorization: this.authToken
         });
-        // return this.http.put("http://localhost:5000/api/users/update/" + user.id,user, {
-        return this.http.put("api/users/update/" + user.id, user, {
+        return this.http.put(this.url + "/update/" + user._id, user, {
             headers: headers
         });
     };
@@ -1596,8 +1594,7 @@ var UsersService = /** @class */ (function () {
             "Content-Type": "application/json",
             Authorization: this.authToken
         });
-        // return this.http.delete("http://localhost:5000/api/users/delete/" + id, {
-        return this.http.delete("api/users/delete/" + id, {
+        return this.http.delete(this.url + "/delete/" + id, {
             headers: headers
         });
     };
