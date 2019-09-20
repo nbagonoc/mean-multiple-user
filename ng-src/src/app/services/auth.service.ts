@@ -9,8 +9,8 @@ import { tokenNotExpired, JwtHelper } from "angular2-jwt";
 export class AuthService {
   authToken: any;
   user: any;
-  // url = "http://localhost:5000/api/auth";
-  url = "api/auth";
+  url = "http://localhost:5000/api/auth";
+  // url = "api/auth";
 
   constructor(private http: HttpClient) {}
 
