@@ -1,7 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const passport = require("passport");
-const bodyParser = require("body-parser");
 const path = require("path");
 const cors = require("cors");
 
@@ -15,8 +14,8 @@ require("./models/User");
 // cors
 app.use(cors());
 // body parser middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 // passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
@@ -29,8 +28,8 @@ require("./config/passport")(passport);
 
 // CONNECT TO DB
 mongoose
-  .connect(db)
-  .then(() => console.log("we are connected to our DB"))
+  .connect(db,{useNewUrlParser: true, useUnifiedTopology: true})
+  .then(() => {console.log("we are connected to the DB");})
   .catch(err => console.log(err));
 
 // ROUTES
