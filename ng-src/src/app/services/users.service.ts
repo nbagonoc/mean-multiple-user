@@ -8,8 +8,8 @@ import "rxjs/add/operator/map";
 export class UsersService {
   authToken: any;
   user: any;
-  // url = "http://localhost:5000/api/users";
-  url = "api/users";
+  url = "http://localhost:5000/api/users";
+  // url = "api/users";
 
   constructor(private http: HttpClient) {}
 
