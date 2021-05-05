@@ -8,7 +8,7 @@
     "server": "nodemon server.js",
     "client-i": "npm install --prefix ng-src",
     "client": "npm start --prefix ng-src",
-    "dev": "concurrently \"npm run server\" \"npm run ng-src\""
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Niccu Bagonoc",
   "license": "ISC",

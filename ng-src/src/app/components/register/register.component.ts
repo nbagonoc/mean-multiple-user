@@ -67,7 +67,7 @@ export class RegisterComponent implements OnInit {
             });
             this.router.navigate(["/login"]);
           } else {
-            this.flashMessagesService.show((data as any).msg, {
+            this.flashMessagesService.show((data as any).message, {
               cssClass: "alert-danger",
               timout: 4000
             });
