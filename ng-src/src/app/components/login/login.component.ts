@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
           }
           // display error messages
           else {
-            this.flashMessagesService.show((data as any).msg, {
+            this.flashMessagesService.show((data as any).message, {
               cssClass: "alert-danger",
               timout: 5000
             });

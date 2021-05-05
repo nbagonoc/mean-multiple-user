@@ -75,7 +75,7 @@ router.put(
   [passport.authenticate("jwt", { session: false }), isAdmin],
   (req, res) => {
     if (!req.body.name) {
-      res.json({ success: false, msg: "Name is required" });
+      res.json({ success: false, message: "Name is required" });
     } else {
       User.findOne({ _id: req.params.id })
         .then(user => {

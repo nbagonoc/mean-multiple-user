@@ -14,21 +14,21 @@ const User = mongoose.model("users");
 // register process
 router.post("/register", (req, res, next) => {
   if (!req.body.name) {
-    res.json({ success: false, msg: "name is required" });
+    res.json({ success: false, message: "name is required" });
   }
   if (!req.body.email) {
-    res.json({ success: false, msg: "email is required" });
+    res.json({ success: false, message: "email is required" });
   }
   if (!req.body.password) {
-    res.json({ success: false, msg: "password is required" });
+    res.json({ success: false, message: "password is required" });
   }
   if (req.body.password != req.body.password2) {
-    res.json({ success: false, msg: "password does not match" });
+    res.json({ success: false, message: "password does not match" });
   } else {
     User.findOne({ email: req.body.email })
       .then(user => {
         if (user) {
-          return res.json({ success: false, msg: "Email already exist" });
+          return res.json({ success: false, message: "Email already exist" });
         } else {
           const newUser = new User({
             name: req.body.name,
@@ -38,13 +38,13 @@ router.post("/register", (req, res, next) => {
           bcrypt.genSalt(10, (err, salt) => {
             bcrypt.hash(newUser.password, salt, (err, hash) => {
               if (err) {
-                res.json({ success: false, msg: "Failed to register user" });
+                res.json({ success: false, message: "Failed to register user" });
               } else {
                 newUser.password = hash;
                 newUser
                   .save()
                   .then(user => {
-                    res.json({ success: true, msg: "User registered" });
+                    res.json({ success: true, message: "User registered" });
                   })
                   .catch(ex => {
                     return res.status(500).send("Something went wrong", ex);
@@ -66,16 +66,16 @@ router.post("/login", (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
   if (!req.body.email) {
-    return res.json({ success: false, msg: "Email is required" });
+    return res.json({ success: false, message: "Email is required" });
   }
   if (!req.body.password) {
-    return res.json({ success: false, msg: "Password is required" });
+    return res.json({ success: false, message: "Password is required" });
   } else {
     User.findOne({ email })
       .then(user => {
         // check for user
         if (!user) {
-          return res.json({ success: false, msg: "User not found" });
+          return res.json({ success: false, message: "User not found" });
         } else {
           // check password
           bcrypt
@@ -102,7 +102,7 @@ router.post("/login", (req, res, next) => {
                   }
                 );
               } else {
-                return res.json({ success: false, msg: "Password incorrect" });
+                return res.json({ success: false, message: "Password incorrect" });
               }
             })
             .catch(ex => {
