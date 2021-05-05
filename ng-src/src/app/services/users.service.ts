@@ -46,7 +46,7 @@ export class UsersService {
     });
   }
 
-  // GET | api/users/show/:id
+  // GET | api/users/view/:id
   // get a user
   getUser(id) {
     this.loadToken();
@@ -54,7 +54,7 @@ export class UsersService {
       "Content-Type": "application/json",
       Authorization: this.authToken
     });
-    return this.http.get(this.url + "/show/" + id, {
+    return this.http.get(this.url + "/view/" + id, {
       headers
     });
   }

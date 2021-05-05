@@ -56,7 +56,7 @@ router.get(
 // GET | api/users/view/:id
 // get user
 router.get(
-  "/show/:id",
+  "/view/:id",
   [passport.authenticate("jwt", {session: false}), isAdmin],
   (req, res) => {
     User.findOne({_id: req.params.id})
