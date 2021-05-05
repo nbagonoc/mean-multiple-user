@@ -85,30 +85,24 @@ router.put(
     } else {
       User.findOne({_id: req.params.id})
         .then(user => {
-          if (user) {
-            user.name = req.body.name;
-            user
-              .save()
-              .then(userUpdated => {
-                if (userUpdated) {
-                  res.json({success: true, message: "User updated!"});
-                } else {
-                  res.json({success: false, message: err});
-                }
-              })
-              .catch(ex => {
-                return res
-                  .status(500)
-                  .json({success: false, message: "something went wrong"});
-              });
-          } else {
-            res.json({success: false, message: "User not found"});
-          }
+          user.name = req.body.name;
+          user
+            .save()
+            .then(userUpdated => {
+              if (userUpdated) {
+                res.json({success: true, message: "User updated!"});
+              } else {
+                res.json({
+                  success: false,
+                  message: "User not updated. Please try again"
+                });
+              }
+            })
         })
         .catch(ex => {
           return res
             .status(500)
-            .json({success: false, message: "something went wrong"});
+            .json({success: false, message: "User not found"});
         });
     }
   }
@@ -126,24 +120,19 @@ router.delete(
           .remove()
           .then(userDeleted => {
             if (userDeleted) {
-              res.json({success: true, message: "Blog post deleted"});
+              res.json({success: true, message: "User has been removed"});
             } else {
               res.json({
                 success: false,
-                message: "User not deleted. Please try again"
+                message: "User not removed. Please try again"
               });
             }
           })
-          .catch(ex => {
-            return res
-              .status(500)
-              .json({success: false, message: "something went wrong"});
-          });
       })
       .catch(ex => {
         return res
           .status(500)
-          .json({success: false, message: "something went wrong"});
+          .json({success: false, message: "User not found"});
       });
   }
 );
